@@ -1,13 +1,62 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  --white-dart: #e6f1ff;
+  --green: #64ffda;
+  --dark-slate: #495670;
+  --navy: #0a192f;
+  --main-color: #1c1c1c;
+  --secondary-color: #3a3a3a;
+  --white-pure: #fff;
+  --h-header: 6rem;
+  --h-footer: 2.5rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family:  "SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--main-color) !important;
+  color: var(--white-dart);
 }
+
+@media (min-width: 30em) {
+  html {
+    font-size: 125%;
+  }
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--main-color)
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: var(--dark-slate);
+  border: 4px;
+  border-radius: 10px;
+}
+
+/*@media (min-width: 40em) {*/
+/*  html {*/
+/*    font-size: 150%;*/
+/*  }*/
+/*}*/
+
+/*@media (min-width: 50em) {*/
+/*  html {*/
+/*    font-size: 175%;*/
+/*  }*/
+/*}*/
+
+/*@media (min-width: 60em) {*/
+/*  html {*/
+/*    font-size: 200%;*/
+/*  }*/
+/*}*/

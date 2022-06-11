@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {NavBar} from "./components";
+import styled from "styled-components";
+import {Outlet} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+    return <div>
+        <NavBar/>
+        <div className="d-flex">
+            <Outlet />
+        </div>
+        <PageFooter id="footer">
+            <div className="container text-center">
+                <FooterText className="mb-0">Built By Mark Solano :  Created in <FooterLink href="https://reactjs.org/">React</FooterLink></FooterText>
+            </div>
+        </PageFooter>
     </div>
-  );
-}
+};
 
 export default App;
+
+const PageFooter = styled.footer`
+    background-color: #111;
+    padding: 30px;
+    position: fixed !important;
+`;
+const FooterText = styled.p`
+    color: #748182;
+    margin: 0;
+    line-height: 1.6;
+    font-size: 13px;
+`;
+
+const FooterLink = styled.a`
+    color: var(--bs-link-hover-color);
+    text-decorator: none;
+`;
