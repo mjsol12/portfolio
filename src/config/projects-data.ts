@@ -2,7 +2,7 @@ export const SmallData = [
     {
         Title: 'Bluetooth Printer',
         Description: 'A mobile app that connect the bluetooth thermal printer and project outlet site',
-        Url: 'https://github.com/mjsol12/blue-tooth-outlet',
+        Url: 'https://bitbucket.org/mjs12/bt-thermal-printer/src/master/',
         ImageUrl: '/img/project-smiles/m-1.png',
         Tags: [
             "TypeScript",
@@ -27,7 +27,7 @@ export const SmallData = [
     {
         Title: 'UBI',
         Description: 'System that generates basic income throu a network of users',
-        Url: 'https://github.com/mjsol12/dashboard-fakebackend',
+        Url: '',
         ImageUrl: '/img/project-smiles/m-1.png',
         Tags: [
             "Javascript",
