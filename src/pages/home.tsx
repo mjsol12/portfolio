@@ -12,7 +12,8 @@ const HomePage = () => {
         </div>
         <div ><BuilderTag>I build things for the web.</BuilderTag>
         </div>
-        <div><p>I specializing in building exceptional web application services.</p></div>
+        <div><p>Specializing in building exceptional web application services.</p></div>
+        <div><p>Helping businesses minimize their cost and maximize operations.</p></div>
         <div><Link to={"/about"} style={{ color: "var(--green)", textDecoration: "none"}}>Learn More</Link></div>
     </SectionPage>
 };
