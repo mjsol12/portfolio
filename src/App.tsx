@@ -7,9 +7,9 @@ import {Outlet} from "react-router-dom";
 const App = () => {
     return <div>
         <NavBar/>
-        <div className="d-flex">
+        <section id="router-body" className="d-flex">
             <Outlet />
-        </div>
+        </section>
         <PageFooter id="footer">
             <div className="container text-center">
                 <FooterText className="mb-0">Built By Mark Solano :  Created in <FooterLink href="https://reactjs.org/">React</FooterLink></FooterText>
@@ -21,7 +21,6 @@ const App = () => {
 export default App;
 
 const PageFooter = styled.footer`
-    background-color: #111;
     padding: 30px;
     position: fixed !important;
 `;
