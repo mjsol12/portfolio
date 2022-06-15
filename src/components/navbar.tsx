@@ -26,12 +26,16 @@ const NavBar = () => {
                 <HomePage className="d-flex position-relative">
                     <div>
                         <TextContainer className="container">
-                            <SectionH1>
-                                <span style={{fontWeight: 500, background: "var(--white-pure)", color: "var(--navy)", padding: "0px 6px"}}>Mark</span>
-                                <span style={{
-                                    borderLeft: "1px solid var(--navy)",
-                                    fontWeight: 500, background: "var(--white-dart)", color: "var(--navy)",padding: "0px 6px"}}>Solano</span>
-                            </SectionH1>
+                            <Link
+                                style={{ textDecoration: "none" }}
+                                to={'/home'}
+                            >
+                                <SectionH1>
+                                    <span style={{fontWeight: 500, background: "var(--white-pure)", color: "var(--navy)", padding: "0px 6px"}}>Mark</span>
+                                    <span style={{
+                                        fontWeight: 500, background: "var(--green)", color: "var(--white-dart)",padding: "0px 6px"}}>Solano</span>
+                                </SectionH1>
+                            </Link>
                         </TextContainer>
                     </div>
                     <PhTagContainer className="position-absolute">
@@ -46,8 +50,8 @@ const NavBar = () => {
                 <NavShow>
                     <UnorderList  className="nav navbar-nav navbar-right flex-lg-row">
                         {
-                            NavigationData.map(nav =>
-                                <ListTag>
+                            NavigationData.map((nav,index) =>
+                                <ListTag key={`list-tag-${index}`}>
                                     <CustomLink to={nav.Section}> {nav.Label} </CustomLink>
                                 </ListTag>
                             )
@@ -87,8 +91,9 @@ const ListTag = styled.li`
 
 const NavBarWrapper = styled.header`
     top: 0;
+    z-index: 11;
     position: sticky;
-    background: #1c1c1c;
+    background: var(--main-color);
     padding: 1em;
     width: 100%;
     min-height: 60px;
