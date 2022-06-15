@@ -1,10 +1,11 @@
 html {
   --white-dart: #e6f1ff;
-  --green: #64ffda;
+  --white-dart-light: #e6f1ff47;
+  --green: #007effe3;
   --dark-slate: #495670;
   --navy: #0a192f;
-  --main-color: #1c1c1c;
-  --secondary-color: #3a3a3a;
+  --main-color: #002131;
+  --secondary-color: #013954;
   --white-pure: #fff;
   --h-header: 6rem;
   --h-footer: 2.5rem;
@@ -38,7 +39,7 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: var(--dark-slate);
+  background-color: var(--secondary-color);
   border: 4px;
   border-radius: 10px;
 }
