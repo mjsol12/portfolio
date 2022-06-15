@@ -1,12 +1,14 @@
 import React from "react";
 import style from "styled-components";
+import ImageOverlay from "../components/image-overly";
 
 const AboutPage = () => {
+    const Stacks = ["Javascript (Es6+)", "TypeScript", "React", "Angular", "Node.js"];
     return <SectionPage className="container">
-        <div className="d-flex">
-            <AboutContainer>
+        <div className="d-flex justify-content-evenly align-items-center">
+            <AboutContainer className="w-50">
                 <TextContainer className="container mb-5">
-                    <SectionH5>About Me</SectionH5>
+                    <SectionH1>About Me</SectionH1>
                     <SectionDescription>
                         Hello! My name is Mark Solano from Philippines and part of a team based in Belfast.
                         My main responsibility as full stack developer are implementing feature, design interface,
@@ -23,22 +25,18 @@ const AboutPage = () => {
                     </SectionDescription>
                 </TextContainer>
                 <TextContainer className="container">
-                    <SectionH1>
+                    <SectionH5>
                         Technologies I've been working with recently
-                    </SectionH1>
+                    </SectionH5>
                     <SectionList>
-                        <ListItem><span> {">"} </span>Javascript (Es6+)</ListItem>
-                        <ListItem><span> {">"}  </span>TypeScript</ListItem>
-                        <ListItem><span> {">"}  </span>React</ListItem>
-                        <ListItem><span> {">"}  </span>Angular</ListItem>
-                        <ListItem><span> {">"}  </span>Node.js</ListItem>
+                        {
+                            Stacks.map((stack,index) => <ListItem key={`stack-${index}`} className="ps-3">{stack}</ListItem> )
+                        }
                     </SectionList>
                 </TextContainer>
             </AboutContainer>
             <AboutContainer>
-                <TextContainer className="container mb-5">
-                    <div style={{background: 'black', width: "500px", height: "500px"}}></div>
-                </TextContainer>
+                <ImageOverlay ImageUrl={"/img/myself5.jpg"} Width={168}/>
             </AboutContainer>
         </div>
     </SectionPage>
@@ -50,6 +48,8 @@ const SectionPage = style.section`
 `;
 
 const AboutContainer = style.div`
+    position: relative;
+    padding: 0;
 `;
 
 const SectionDescription = style.div`
@@ -59,13 +59,16 @@ const SectionDescription = style.div`
     text-align: justify;
 `;
 
-const SectionH5 = style.h5`
+const SectionH1 = style.h1`
     font-size: 50px;
     font-weight: 800;
     margin-bottom: 10px;
+    ::after {
+        width: 400px
+    }
 `;
 
-const SectionH1 = style.h1`
+const SectionH5 = style.h5`
     font-size: 1rem;
     font-weight: 200;
     text-indent: 1rem;
@@ -74,18 +77,32 @@ const SectionH1 = style.h1`
 const TextContainer = style.div`
     background: linear-gradient( rgb(0 0 0 / 2%), rgb(0 0 0 / 1%) );
     box-shadow: 0px 0px 10px #0000000a;
+    position: relative;
+    padding: 0;
 `;
 
-const SectionList = style.div`
-    display: flex;
+const SectionList = style.ul`
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+    gap: 0px 10px;
+    padding: 0px;
+    margin: 20px 0px 0px;
+    overflow: hidden;
+    list-style: none;
+`;
+
+const ListItem = style.li`
+    white-space: nowrap;
     color: var(--green);
-    flex-wrap: wrap;
-    flex-direction: row;
-`;
-
-const ListItem = style.div`
-    width: 50%;
-    & span {
-        font-size: .7rem;
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    font-family: var(--font-mono);
+    font-size: var(--fz-xs);
+    ::before {
+        content: "▹";
+        position: absolute;
+        left: 0px;
+        color: var(--white-dart);
     }
 `;
