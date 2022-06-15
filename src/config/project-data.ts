@@ -1,4 +1,6 @@
-export const ProjectData = [
+import {ProjectDataType} from "../model";
+
+export const ProjectData : ProjectDataType[] = [
     {
         Title: 'Smiles',
         Description: 'A School Grading Tool used on public teacher.' +
@@ -39,18 +41,118 @@ export const ProjectData = [
             "Handsontable",
             "Other Libraries"
         ]
+    }
+];
+
+export const SmallProjectsData: ProjectDataType[] = [
+    {
+        Title: 'Portfolio',
+        Description: 'My personal site created from scratch, a complete summary my work, experience and qualifications',
+        Url: 'https://github.com/mjsol12/portfolio',
+        RepositoryUrl: 'https://github.com/mjsol12/portfolio',
+        ImageUrl: '/img/project-smiles/m-1.png',
+        FeaturedTags:[
+            "TypeScript",
+            "React",
+            "Bootstrap",
+        ],
+        Tags: [
+            "TypeScript",
+            "React",
+            "Bootstrap"
+        ]
+    },
+    {
+        Title: 'Bluetooth Printer',
+        Description: 'A mobile app that connect the bluetooth thermal printer and project outlet site',
+        Url: 'https://bitbucket.org/mjs12/bt-thermal-printer/src/master/',
+        RepositoryUrl: 'https://bitbucket.org/mjs12/bt-thermal-printer/src/master/',
+        ImageUrl: '/img/project-smiles/m-1.png',
+        FeaturedTags:[
+            "TypeScript",
+            "Angular 6+",
+            "NativeScript",
+        ],
+        Tags: [
+            "TypeScript",
+            "Angular 6+",
+            "NativeScript",
+            "3rd Party bluetooth connector",
+            "Other Libraries"
+        ]
+    },
+    {
+        Title: 'Scoring System',
+        Description: 'InterHigh School pageant scoring system for judges and its participants, display real time scores.',
+        Url: 'https://bitbucket.org/mjs12/bt-thermal-printer/src/master/',
+        RepositoryUrl: 'https://bitbucket.org/mjs12/bt-thermal-printer/src/master/',
+        ImageUrl: '/img/project-smiles/m-1.png',
+        FeaturedTags:[
+            "TypeScript",
+            "Angular 6+",
+            "Nodejs",
+        ],
+        Tags: [
+            "TypeScript",
+            "Angular 6+",
+            "NativeScript",
+            "3rd Party bluetooth connector",
+            "Other Libraries"
+        ]
+    },
+    {
+        Title: 'ToDo list',
+        Description: 'React app with basic functionality create, delete and marks a list of to-dos with basic routing',
+        WebUrl: ' https://mjsol12.github.io/react-todo-list/',
+        Url: ' https://mjsol12.github.io/react-todo-list/',
+        RepositoryUrl: 'https://github.com/mjsol12/react-todo-list',
+        ImageUrl: '/img/project-smiles/m-1.png',
+        FeaturedTags:[
+            "TypeScript",
+            "Angular 13+",
+            "SweetAlert"
+        ],
+        Tags: [
+            "TypeScript",
+            "Angular 13+",
+            "SweetAlert",
+            "Other Libraries"
+        ]
+    },
+    {
+        Title: 'Dashboard',
+        Description: 'Created dashboard displaying data from fake api call using only angular',
+        Url: 'https://github.com/mjsol12/dashboard-fakebackend',
+        RepositoryUrl: 'https://github.com/mjsol12/judging-criteria',
+        ImageUrl: '/img/project-smiles/m-1.png',
+        FeaturedTags:[
+            "TypeScript",
+            "Angular 13+",
+            "SweetAlert"
+        ],
+        Tags: [
+            "TypeScript",
+            "Angular 13+",
+            "SweetAlert",
+            "Other Libraries"
+        ]
     },
     {
         Title: 'DA Central',
-        Description: 'Participate in developing a soil tracing and mapping tracing web app specially ' +
-            'conducted integrating soil map tracing, Contributed in front-end and integrating some 3rd party library like OpenStreetMap' +
+        Description: 'ontributed in front-end and integrating some 3rd party library like OpenStreetMap' +
             ' and basic graph reporting.',
-        Url: '/home',
+        WebUrl: 'https://da.backbone.ph',
         ImageUrl: '/img/project-da-central/m-1.png',
+        FeaturedTags:[
+            "Angular 8+",
+            "Nodejs",
+            "Mongodb",
+            "Openstreetmap"
+        ],
         Tags: [
             "TypeScript",
             "Angular 8+",
-            "Node Js",
+            "Nodejs",
             "Express.js",
             "Mongodb",
             "Rest API",
@@ -59,17 +161,24 @@ export const ProjectData = [
         ]
     },
     {
-        Title: 'Bluetooth Printer',
-        Description: 'Created a android application for the project (Outlet) that connects the web system to android ' +
-            'and translate the web api data into printable format, it connects to a bluetooth device printer ' +
-            'to print receipt or transaction.',
-        Url: '/home',
-        ImageUrl: '/img/project-da-central/m-1.png',
+        Title: 'UBI',
+        Description: 'System that generates basic income thru a network of users and reward system.' +
+            'Integrate 3rd party, Facebook, Twitter, Google, Linkin API and design layout',
+        Url: '',
+        ImageUrl: '/img/project-smiles/m-1.png',
+        FeaturedTags:[
+            "Angular 7+",
+            "Nodejs",
+            "3rd Party library"
+        ],
         Tags: [
+            "Javascript",
             "TypeScript",
-            "Angular 6",
-            "NativeScript",
-            "NativeScript-Hprt"
+            "Angular 7+",
+            "Nodejs",
+            "SCSS",
+            "Angular Template",
+            "Other Libraries"
         ]
-    },
+    }
 ];

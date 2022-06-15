@@ -2,15 +2,15 @@ import {NavDataType} from "../model";
 
 export const NavigationData : NavDataType[] = [
     {
-        Label: 'Home',
-        Section: '/home'
-    },
-    {
         Label: 'About',
         Section: '/about'
     },
     {
-        Label: 'Project',
+        Label: 'Projects',
         Section: '/project'
+    },
+    {
+        Label: 'Experience',
+        Section: '/experience'
     }
 ];
