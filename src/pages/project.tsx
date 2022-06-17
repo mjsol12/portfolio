@@ -3,53 +3,55 @@ import styled from "styled-components";
 import {ProjectData, SmallProjectsData} from "../config/project-data";
 import {ProjectDataType} from "../model";
 import ImageOverlay from "../components/image-overly";
+import PageHeader from "../components/page-header";
+import FadeIn from "../components/fade-in";
 
 const AboutPage = () => {
     const title = 'Projects';
     const projects: ProjectDataType[] = ProjectData;
     const subProjects: ProjectDataType[] = SmallProjectsData;
-    return <ProjectPageSection id="project"  className="container mb-5">
-        <SectionH5>{title}</SectionH5>
-        {
-            projects.map((project, index) => <>
-                    <ProjectContainer key={`Project-Featured-${index}`} className="d-flex align-items-center mb-5" rightAlignment={index % 2 == 0 }>
-                        <LeftSide className="p-4" leftAlignment={index % 2 == 0}>
-                            <ProjectName textAlign={index % 2 == 0}>
-                                <p className="m-0 p-0">Featured Project</p>
-                                <h1>
-                                    <span>{project.Title}</span>
-                                </h1>
-                            </ProjectName>
-                            <ProjectDescription>
-                                <p>{project.Description}</p>
-                            </ProjectDescription>
-                            <StackList>
-                                {
-                                    project.Tags.map((tag, index) =>
-                                        <StackItem key={`tag-${tag}-${index}`} >{tag}</StackItem>
-                                    )
-                                }
-                            </StackList>
-                        </LeftSide>
-                        <div>
-                            <ImageOverlay ImageUrl={project.ImageUrl && project.ImageUrl} Width={500}/>
-                        </div>
-                    </ProjectContainer>
-                {
-                    (index + 1) !== projects.length  && <Divider divided={index % 2 == 0} className="d-flex align-items-center mb-5"></Divider>
-                }
-                </>
-            )
-        }
-
-        <SectionH5> Other Projects</SectionH5>
-
-        <div className="d-flex flex-wrap justify-content-center mb-5">
+    return <FadeIn className="container mb-5">
+        <ProjectPageSection id="project"  >
+            <PageHeader Title={title}/>
             {
-                subProjects.map((project, index) => <CardProject Project={project} key={`Project-Card-${index}`}/>)
+                projects.map((project, index) => <>
+                        <ProjectContainer key={`Project-Featured-${index}`} className="d-flex align-items-center mb-5" rightAlignment={index % 2 == 0 }>
+                            <LeftSide className="p-4" leftAlignment={index % 2 == 0}>
+                                <ProjectName textAlign={index % 2 == 0}>
+                                    <p className="m-0 p-0">Featured Project</p>
+                                    <h3> {project.Title} </h3>
+                                </ProjectName>
+                                <ProjectDescription>
+                                    <p>{project.Description}</p>
+                                </ProjectDescription>
+                                <StackList>
+                                    {
+                                        project.Tags.map((tag, index) =>
+                                            <StackItem key={`tag-${tag}-${index}`} >{tag}</StackItem>
+                                        )
+                                    }
+                                </StackList>
+                            </LeftSide>
+                            <div>
+                                <ImageOverlay ImageUrl={project.ImageUrl && project.ImageUrl} Width={500}/>
+                            </div>
+                        </ProjectContainer>
+                        {
+                            (index + 1) !== projects.length  && <Divider divided={index % 2 == 0} className="d-flex align-items-center mb-5"></Divider>
+                        }
+                    </>
+                )
             }
-        </div>
-    </ProjectPageSection>
+
+            <PageHeader Title={"Other Projects"}/>
+
+            <div className="d-flex flex-wrap justify-content-center mb-5">
+                {
+                    subProjects.map((project, index) => <CardProject Project={project} key={`Project-Card-${index}`}/>)
+                }
+            </div>
+        </ProjectPageSection>
+    </FadeIn>
 };
 export default AboutPage;
 
@@ -97,6 +99,13 @@ const LeftSide = styled.div`
 
 const ProjectName = styled.div`
     text-align: ${(props: {textAlign: boolean}) => props.textAlign ? "right": "left"};
+    & p {
+        color: var(--green);
+        font-size: 12px;
+    } 
+    & h3 {
+        margin: 0;
+    }
     & h1 {
         text-indent: 1rem;
         margin: 6px;
@@ -134,23 +143,6 @@ const ProjectDescription = styled.div`
 const Divider = styled.div`
     height: .5px;
     margin: ${(props: {divided: boolean}) => props.divided ? "0 40% 0 0": "0 0 0 40%"};
-`;
-
-const SectionH5 = styled.h1`
-    font-size: 50px;
-    font-weight: 800;
-    margin-bottom: 50px;
-    display:flex;
-    align-items: center;
-    ::after {
-        content: "";
-        display: block;
-        top: -5px;
-        width: 270px;
-        height: 1px;
-        margin-left: 20px;
-        background-color: var(--white-dart-light);
-    }
 `;
 
 const ProjectFolder = styled.div`
