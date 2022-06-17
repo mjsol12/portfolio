@@ -8,21 +8,16 @@ const CustomLink = ({ children, to, ...props }: LinkProps)  => {
     let match = useMatch({ path: resolved.pathname, end: true });
 
     return (
-        <Link
-            style={{ textDecoration: match ? "underline" : "none" }}
-            to={to}
-            {...props}
-        >
+        <Link style={{ textDecoration: match ? "underline" : "none" }} to={to}{...props}>
             {children}
         </Link>
     );
-}
-
+};
 
 const NavBar = () => {
     return (
         <NavBarWrapper>
-            <div className="d-flex justify-content-around">
+            <div className="d-flex justify-content-between justify-content-xxl-around">
                 <HomePage className="d-flex position-relative">
                     <div>
                         <TextContainer className="container">
@@ -31,24 +26,15 @@ const NavBar = () => {
                                 to={'/home'}
                             >
                                 <SectionH1>
-                                    <span style={{fontWeight: 500, background: "var(--white-pure)", color: "var(--navy)", padding: "0px 6px"}}>Mark</span>
-                                    <span style={{
-                                        fontWeight: 500, background: "var(--green)", color: "var(--white-dart)",padding: "0px 6px"}}>Solano</span>
+                                    <FirstSpan>Mark</FirstSpan>
+                                    <SecondSpan>Solano</SecondSpan>
                                 </SectionH1>
                             </Link>
                         </TextContainer>
                     </div>
-                    <PhTagContainer className="position-absolute">
-                        <PhTagH1>
-                            <PhTag>
-                                <span>P</span>
-                                <span>H</span>
-                            </PhTag>
-                        </PhTagH1>
-                    </PhTagContainer>
                 </HomePage>
                 <NavShow>
-                    <UnorderList  className="nav navbar-nav navbar-right flex-lg-row">
+                    <ul  className="nav navbar-nav navbar-right flex-lg-row">
                         {
                             NavigationData.map((nav,index) =>
                                 <ListTag key={`list-tag-${index}`}>
@@ -56,7 +42,10 @@ const NavBar = () => {
                                 </ListTag>
                             )
                         }
-                    </UnorderList>
+                        <ListTag>
+                            <ResumeButton href="/files/Mark_Solano_Resume.pdf" target="_blank">Resume</ResumeButton>
+                        </ListTag>
+                    </ul>
                 </NavShow>
             </div>
         </NavBarWrapper>
@@ -71,7 +60,17 @@ const NavShow = styled.div`
     
 `;
 
-const UnorderList = styled.ul`
+const ResumeButton = styled.a`
+    background-color: var(--main-color)!important;
+    color: var(--white-dart)!important;
+    border: 2px solid var(--white-dart);
+    border-radius: 4px;
+    padding: 2px 6px !important;
+    &:hover{
+        color: var(--white-dart) !important;
+        background-color: #007eff45 !important;
+        // border: 2px solid var(--green) !important;
+    }
 `;
 
 const ListTag = styled.li`
@@ -99,36 +98,26 @@ const NavBarWrapper = styled.header`
     min-height: 60px;
     color: var(--white-dart);
 `;
-const AlphaTag = styled.a`
-    text-decoration: none;
-    color: inherit;
-    &:hover {
-        color: var(--green);
-    }
-    &:active {
-        color: var(--green);
-    }
-`;
 const SectionH1 = styled.h1`
     font-size: 1rem;
     font-weight: 200;
     margin-bottom: 0;
-    color:;
+`;
+
+const FirstSpan = styled.span`
+    font-weight: 500;
+    background: var(--white-pure);
+    color: var(--navy); 
+    padding: 0px 6px;
+`;
+
+const SecondSpan = styled.span`
+      font-weight: 500;
+      color: var(--white-dart); 
+      padding: 0px 6px;
 `;
 
 const TextContainer = styled.div`
     background: linear-gradient( rgb(0 0 0 / 2%), rgb(0 0 0 / 1%) );
     box-shadow: 0px 0px 10px #0000000a;
 `;
-
-const PhTagContainer = styled.div`
-    padding-left: 0px;
-    padding-right: 0px;
-    position: absolute;
-    right: 0px;
-    top: 2px;
-    /* border-radius: 12px; */
-`;
-const PhTagH1 = styled.h1`font-size: .5rem;text-align: right;`;
-
-const PhTag = styled.span`font-weight: 500;background: var(--white-pure);color: var(--navy);padding: 0px 3px;border-radius: 2px;border:1px solid var(--navy)`;
