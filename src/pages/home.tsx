@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import {Link} from "react-router-dom";
 import FadeIn from "../components/fade-in";
 
@@ -39,12 +39,32 @@ const IntroTag = styled.h1`
     font-size: 1.2rem;
 `;
 
+const titleTyping = keyframes`
+  100%{
+    left: 100%;
+    width: 0;
+  }
+`;
+
 const PositionTag = styled.h2`
     font-weight: bolder;
     text-indent: 1rem;
-    line-height: .5;
     letter-spacing: .1rem;
     font-size: 3.5rem;
+    & span {
+        position: relative;
+    }
+    & span::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        background: var(--main-color);
+        animation: ${titleTyping} 2s;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+    }
 `;
 const BuilderTag = styled.h3`
     line-height: 5;
