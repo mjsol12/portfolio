@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PageHeader from "../components/page-header";
-import {Experiences} from "../config/exprence";
+import {Experiences} from "../config/experience";
 import {ExperienceType} from "../model";
 import FadeIn from "../components/fade-in";
 
