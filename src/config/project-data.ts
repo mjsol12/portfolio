@@ -3,9 +3,9 @@ import {ProjectDataType} from "../model";
 export const ProjectData : ProjectDataType[] = [
     {
         Title: 'Smiles',
-        Description: 'A School Grading Tool used on public teacher.' +
-            ' Assigned mostly in front-end side design and layout' +
-            ' using a Angular template, created generic design and reusable component.',
+        Description: 'A School Grading Tool used by public teacher. ' +
+            'Assigned mostly to front-end side design and layout using an Angular template, ' +
+            'creating generic design and reusable components.',
         Url: '/home',
         ImageUrl: '/img/project-smiles/m-1.png',
         Tags: [
@@ -23,9 +23,10 @@ export const ProjectData : ProjectDataType[] = [
     },
     {
         Title: 'Outlet',
-        Description: 'A locally financed system. ' +
-            'Assigned as front-end from beginning to long term support, from Login Design to Reporting and Authentication,' +
-            ' and eventually worked on backend created api requirements and designed data structure.',
+        Description: 'A locally financed system by local businessman. ' +
+            'Assigned as front-end from beginning up to long term support, ' +
+            'from Login Design to Reporting and Authentication, and eventually worked on backend creating api ' +
+            'requirements and designed data structure.',
         Url: '/home',
         ImageUrl: '/img/project-outlet/login.jpg',
         Tags: [
@@ -139,7 +140,7 @@ export const SmallProjectsData: ProjectDataType[] = [
     },
     {
         Title: 'DA Central',
-        Description: 'ontributed in front-end and integrating some 3rd party library like OpenStreetMap' +
+        Description: 'contributed in front-end template layout design, dashboard, and integrating some 3rd party library like OpenStreetMap' +
             ' and basic graph reporting.',
         WebUrl: 'https://da.backbone.ph',
         ImageUrl: '/img/project-da-central/m-1.png',
