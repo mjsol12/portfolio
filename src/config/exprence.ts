@@ -7,8 +7,9 @@ export const Experiences: ExperienceType[] = [
         Url: "https://www.caseddimensions.com/",
         Year: 'June 2020 - Present',
         Jobs: [
-            'Awarded for fixing a lot of bugs during my first 2 months in the job',
-            'Front-end Development with Angularjs, React and Nodejs, and implements user story or feature',
+            'Rewarded for fixing a lot of bugs during my first 2 months in the job',
+            'Front-end Development with Angular and React, Nodejs, and Azure DevOps',
+            'Implements user story or feature',
             'Fixing bugs and design markups and methods',
             'Collaborate with colleague on the project implementation and a scrum methodology'
         ],
@@ -23,14 +24,15 @@ export const Experiences: ExperienceType[] = [
     {
         Company: 'Dominoff (Freelancer/startup)',
         Position: 'Full-stack Development',
-        Year: '2017 - June 2020',
+        Year: '2017 - Present',
         Jobs: [
             'Created a mobile app for client specifications using NativeScript.',
             'Heavy in Front-end using Angular but also worked in back-end using Express and Nodejs.',
-            'Design data using Mongodb and Nodejs for API requirements.',
+            'Designed data using Mongodb and Nodejs for API requirements.',
             'Implements feature and maintain code base up to date.',
             'Collaborate with project partner for the implementation of system.',
-            'Provides client support and gradually seeing client for updates and support tech.'
+            'Provides client support and gradually seeing client for updates and support tech.',
+            'Integrated SMS/GSM data converter into web data'
         ],
         Stacks: [
             'Angular',
