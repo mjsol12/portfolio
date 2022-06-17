@@ -38,7 +38,7 @@ const  Overly = style.div`
   width: 100%;
   opacity: 1;
   transition: .5s ease;
-  background-color: #008cba87;
+  background-color: #008cba36;
   &:hover { 
     opacity: 0
   }
