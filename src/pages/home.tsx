@@ -9,24 +9,50 @@ const HomePage = () => {
         <FadeIn className="container" >
             <SectionPage id="home" >
                 <div>
-                    <IntroTag>Hi, I'm a</IntroTag>
+                    <IntroTag>
+                        <span>Hi, I'm a</span>
+                    </IntroTag>
                 </div>
                 <div>
                     <PositionTag>
                         <span>{jobTitle}</span>
                     </PositionTag>
                 </div>
-                <div>
+                <ShowIn>
                     <BuilderTag>I build things for the web.</BuilderTag>
-                </div>
-                <div><p>Specializing in building exceptional web application services.</p></div>
-                <div><p>Helping businesses minimize their cost and maximize operations.</p></div>
-                <div><Link to={"/about"} style={{ color: "var(--green)", textDecoration: "none"}}>Learn More</Link></div>
+                </ShowIn>
+                <ShowIn><p>Specializing in building exceptional web application services.</p></ShowIn>
+                <ShowIn><p>Helping businesses minimize their cost and maximize operations.</p></ShowIn>
+                <ShowIn><Link to={"/about"} style={{ color: "var(--green)", textDecoration: "none"}}>Learn More</Link></ShowIn>
             </SectionPage>
         </FadeIn>
     )
 };
-export default HomePage
+export default HomePage;
+
+const titleTyping = keyframes`
+  100%{
+    left: 100%;
+    width: 0;
+  }
+`;
+
+const showIn = keyframes`
+     0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`;
+
+const ShowIn = styled.div`
+    animation: ${showIn} ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    opacity: 0;
+`;
 
 const SectionPage = styled.section`
     color: var(--white-dart);
@@ -37,13 +63,20 @@ const SectionPage = styled.section`
 
 const IntroTag = styled.h1`
     font-size: 1.2rem;
-`;
-
-const titleTyping = keyframes`
-  100%{
-    left: 100%;
-    width: 0;
-  }
+      & span {
+        position: relative;
+    }
+    & span::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        background: var(--main-color);
+        animation: ${titleTyping} 1s;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+    }
 `;
 
 const PositionTag = styled.h2`
@@ -64,6 +97,7 @@ const PositionTag = styled.h2`
         animation: ${titleTyping} 2s;
         animation-fill-mode: forwards;
         -webkit-animation-fill-mode: forwards;
+        animation-delay: 1s;
     }
 `;
 const BuilderTag = styled.h3`

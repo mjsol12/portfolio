@@ -20,7 +20,6 @@ const fadein = keyframes`
 `;
 
 const FadeInContainer = styled.div`
-
     animation: ${fadein} ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
