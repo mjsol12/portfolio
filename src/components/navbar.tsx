@@ -21,10 +21,7 @@ const NavBar = () => {
                 <HomePage className="d-flex position-relative">
                     <div>
                         <TextContainer className="container">
-                            <Link
-                                style={{ textDecoration: "none" }}
-                                to={'/home'}
-                            >
+                            <Link style={{ textDecoration: "none" }} to={'/home'}>
                                 <SectionH1>
                                     <FirstSpan>Mark</FirstSpan>
                                     <SecondSpan>Solano</SecondSpan>
