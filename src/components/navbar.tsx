@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import {Link, LinkProps, useMatch, useResolvedPath} from "react-router-dom";
 import {NavigationData} from "../config/data-navs";
+import {BsList, BsX} from "react-icons/bs"
+import {devicesMax} from "../config/devices";
 
 const CustomLink = ({ children, to, ...props }: LinkProps)  => {
     let resolved = useResolvedPath(to);
@@ -15,9 +17,11 @@ const CustomLink = ({ children, to, ...props }: LinkProps)  => {
 };
 
 const NavBar = () => {
+    const [open, setOpen] = useState(false);
+
     return (
         <NavBarWrapper>
-            <div className="d-flex justify-content-between justify-content-xxl-around">
+            <nav className="d-flex justify-content-between justify-content-xxl-around">
                 <HomePage className="d-flex position-relative">
                     <div>
                         <TextContainer className="container">
@@ -30,8 +34,13 @@ const NavBar = () => {
                         </TextContainer>
                     </div>
                 </HomePage>
-                <NavShow>
-                    <ul  className="nav navbar-nav navbar-right flex-lg-row">
+                <NavButtonContainer>
+                    <NavButton type="button" className="btn btn-link" onClick={() => setOpen(prevState => !prevState)}>
+                        {open ? <BsX/>:<BsList/>}
+                    </NavButton>
+                </NavButtonContainer>
+                <NavShow open={open}>
+                    <ul className="nav navbar-nav navbar-right flex-md-row">
                         {
                             NavigationData.map((nav,index) =>
                                 <ListTag key={`list-tag-${index}`}>
@@ -44,7 +53,7 @@ const NavBar = () => {
                         </ListTag>
                     </ul>
                 </NavShow>
-            </div>
+            </nav>
         </NavBarWrapper>
     );
 };
@@ -54,7 +63,37 @@ const HomePage = styled.div`
     margin: 25px 20px 0;
 `;
 const NavShow = styled.div`
-    
+    @media ${devicesMax.tablet} {
+        display: ${(props: {open: boolean}) => props.open ? "revert": "none"};
+        position: absolute;
+        right: 0;
+        height: 100vh;    
+        width: 100%;    
+        direction: rtl;
+        background-color: #0031497a;
+        top: 0;
+        ul {
+            align-items: center;
+            justify-content: center;
+            width: 70%;
+            direction: ltr;
+            height: 100%;
+            background: var(--main-color);
+        }
+    }
+`;
+
+const NavButtonContainer = styled.div`
+    display: none;
+    @media ${devicesMax.tablet} {
+        display: revert;
+        z-index: 14;
+    }
+`;
+
+const NavButton = styled.button`
+    font-size: 2rem;
+    color: var(--white-dart) !important;
 `;
 
 const ResumeButton = styled.a`
@@ -63,10 +102,9 @@ const ResumeButton = styled.a`
     border: 2px solid var(--white-dart);
     border-radius: 4px;
     padding: 2px 6px !important;
-    &:hover{
+    :hover {
         color: var(--white-dart) !important;
         background-color: #007eff45 !important;
-        // border: 2px solid var(--green) !important;
     }
 `;
 

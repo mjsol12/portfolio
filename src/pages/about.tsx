@@ -7,29 +7,36 @@ import FadeIn from "../components/fade-in";
 const AboutPage = () => {
     const title = 'About me';
     const Stacks = ["Javascript (Es6+)", "TypeScript", "React", "Angular", "Node.js"];
+    const descriptions = [
+        'Hello! My name is Mark Solano from Philippines and part of a team based in Belfast. ' +
+        'my main responsibility as a software developer is implementing features, designing interfaces, ' +
+        'maintaining bug-free code, and keeping stack skills up to date. ' +
+        'I have had the privilege of working with people who are experienced software engineers and collaborate with them.',
+        'Although my graduate degree was on social degree. My love to create out of the box and a continuing learning path lead me to my career.',
+        'I love to travel using a motorcycle; take landscape pictures; ' +
+        'meet friends and family over the weekend; read articles, news and books, ' +
+        'and occasionally play online games.'
+    ];
     return (
         <FadeIn className="container">
             <SectionPage id="about">
                 <PageHeader Title={title}/>
                 <div className="d-flex justify-content-center">
-                    <AboutContainer className="w-50">
+                    <AboutContainer className="w-75">
                         <TextContainer className="container mb-5">
-                            <SectionDescription>
-                                Hello! My name is Mark Solano from Philippines and part of a team based in Belfast.
-                                My main responsibility as a software developer is implementing features, designing interfaces,
-                                maintaining bug-free code, and keeping stack skills up to date.
-                                I have had the privilege of working with people who are experienced software engineers and collaborate with them.
-                            </SectionDescription>
-                            <SectionDescription>
-                                Although my graduate course was on social degree.
-                                My love to create out of the box and a continuing learning path lead me to my career.
-                            </SectionDescription>
-                            <SectionDescription>
-                                I love to travel using a motorcycle; take landscape pictures;
-                                meet friends and family over the weekend; read articles, news and books,
-                                and occasionally play online games.
-                            </SectionDescription>
+                            {
+                                descriptions.map((des,index) =>
+                                    <SectionDescription key={`Description-${index}`}> { des } </SectionDescription>
+                                )
+                            }
                         </TextContainer>
+                    </AboutContainer>
+                    <AboutContainer className="m-3 w-50">
+                        <ImageOverlay ImageUrl={"/img/myself5.jpg"} Width={168}/>
+                    </AboutContainer>
+                </div>
+                <div>
+                    <AboutContainer className="w-50">
                         <TextContainer className="container">
                             <SectionH5>
                                 Technologies I've been working with recently
@@ -40,9 +47,6 @@ const AboutPage = () => {
                                 }
                             </SectionList>
                         </TextContainer>
-                    </AboutContainer>
-                    <AboutContainer className="m-3">
-                        <ImageOverlay ImageUrl={"/img/myself5.jpg"} Width={168}/>
                     </AboutContainer>
                 </div>
             </SectionPage>
