@@ -15,7 +15,7 @@ const Main = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => setLoading(false), 2000)
+        setTimeout(() => setLoading(false), 1500)
     }, []);
 
     return (<>
@@ -39,8 +39,3 @@ const Main = () => {
 let root = createRoot( document.getElementById('root') as HTMLElement);
 
 root.render(<BrowserRouter><Main/></BrowserRouter>);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
