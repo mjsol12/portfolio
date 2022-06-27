@@ -6,7 +6,7 @@ export const ProjectData : ProjectDataType[] = [
         Description: 'A School Grading Tool used by public teacher. ' +
             'Assigned mostly to front-end side design and layout using an Angular template, ' +
             'creating generic design and reusable components.',
-        Url: '/home',
+        Url: 'https://smiles.backbone.ph/login',
         ImageUrl: '/img/project-smiles/m-1.png',
         Tags: [
             "Javascript",

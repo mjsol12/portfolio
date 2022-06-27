@@ -5,6 +5,8 @@ import {ProjectDataType} from "../model";
 import ImageOverlay from "../components/image-overly";
 import PageHeader from "../components/page-header";
 import FadeIn from "../components/fade-in";
+import {devicesMax} from "../config/devices";
+import {BsFolderSymlink, BsGithub, BsGlobe2} from "react-icons/bs";
 
 const AboutPage = () => {
     const title = 'Projects';
@@ -32,9 +34,9 @@ const AboutPage = () => {
                                     }
                                 </StackList>
                             </LeftSide>
-                            <div>
+                            <ProjectImage>
                                 <ImageOverlay ImageUrl={project.ImageUrl && project.ImageUrl} Width={500}/>
-                            </div>
+                            </ProjectImage>
                         </ProjectContainer>
                         {
                             (index + 1) !== projects.length  && <Divider divided={index % 2 == 0} className="d-flex align-items-center mb-5"></Divider>
@@ -43,7 +45,7 @@ const AboutPage = () => {
                 )
             }
 
-            <PageHeader Title={"Other Projects"}/>
+            <PageHeader Title={"Others"}/>
 
             <div className="d-flex flex-wrap justify-content-center mb-5">
                 {
@@ -60,14 +62,14 @@ type CardPropsType = {
 }
 const CardProject = ({Project}: CardPropsType) => {
   return <>
-      <div className="px-2 mt-2 mb-2 col-sm-6 col-md-4 col-lg-4">
+      <ProjectContent className="px-2 mt-2 mb-2 col-sm-6 col-md-4 col-lg-4">
           <ProjectFolder className="p-2 d-flex flex-column justify-content-between h-100">
               <div className="d-flex justify-content-between">
                   <HeadIcon>_</HeadIcon>
-                  <div className="d-flex flex-row">
-                      {Project.RepositoryUrl && <a className="px-2" href={Project.RepositoryUrl} target="_blank">Repo</a> }
-                      {Project.WebUrl && <a href={Project.WebUrl} target="_blank">Web</a> }
-                  </div>
+                  <LinkContainer className="d-flex flex-row">
+                      {Project.RepositoryUrl && <a className="p-2" href={Project.RepositoryUrl} target="_blank"><BsFolderSymlink/></a> }
+                      {Project.WebUrl && <a className="p-2" href={Project.WebUrl} target="_blank"><BsGlobe2/></a> }
+                  </LinkContainer>
               </div>
               <ProjectH6 className="m-0 d-flex justify-content-start flex-nowrap align-items-center">[{Project.Title}]</ProjectH6>
               <ProjectDescription>
@@ -81,7 +83,7 @@ const CardProject = ({Project}: CardPropsType) => {
                   }
               </StackList>
           </ProjectFolder>
-      </div>
+      </ProjectContent>
   </>
 };
 
@@ -91,6 +93,12 @@ const ProjectPageSection = styled.section`
 
 const ProjectContainer = styled.div`
     direction: ${(props: {rightAlignment: boolean} )=> props.rightAlignment ? 'rtl': 'initial'}
+`;
+
+const ProjectImage = styled.div`
+     @media ${devicesMax.tablet} {
+        display: none;
+    }
 `;
 
 const LeftSide = styled.div`
@@ -145,9 +153,25 @@ const Divider = styled.div`
     margin: ${(props: {divided: boolean}) => props.divided ? "0 40% 0 0": "0 0 0 40%"};
 `;
 
+const ProjectContent = styled.div`
+    :hover {
+       transform: translateY(-3px);
+       transition: var(--transition);
+    }
+`;
+
 const ProjectFolder = styled.div`
     background: var(--secondary-color);
     text-align: justify;
+`;
+
+const LinkContainer = styled.div`
+    a {
+        color: var(--white);
+        :hover {
+            color: var(--green);
+        }
+    }
 `;
 
 const HeadIcon = styled.div`

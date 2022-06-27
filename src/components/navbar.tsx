@@ -158,6 +158,10 @@ const NavBarWrapper = styled.header`
     width: 100%;
     min-height: 60px;
     color: var(--white-dart);
+    @media ${devicesMax.mobileL} {
+        padding: 0 !important;
+        margin: 0;
+    }
 `;
 const SectionH1 = styled.h1`
     font-size: 1rem;
