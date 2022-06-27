@@ -9,10 +9,29 @@ html {
   --white-pure: #fff;
   --h-header: 6rem;
   --h-footer: 2.5rem;
+  --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+  --navy-shadow: rgba(2,12,27,0.7);
+}
+html {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.blur {
+  overflow: hidden;
+}
+
+.main-blur {
+  filter: blur(2px) brightness(0.7);
+  transition: var(--transition);
+  pointer-events: none;
+  user-select: none;
 }
 
 body {
   margin: 0;
+  width: 100%;
+  min-height: 100%;
   font-family:  "SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
