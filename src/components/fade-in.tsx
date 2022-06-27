@@ -4,11 +4,12 @@ type FadeinPageType = {
     className?: JSX.ElementClass | any;
     children: | JSX.Element | JSX.Element[] | string | string[];
 };
-export default ({ className = null, children}: FadeinPageType) => {
+const FadeIn = ({ className = null, children}: FadeinPageType) => {
     return(<FadeInContainer className={className}>
         { children }
     </FadeInContainer>)
-}
+};
+export default FadeIn;
 
 const fadein = keyframes`
      0% {
