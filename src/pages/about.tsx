@@ -31,7 +31,7 @@ const AboutPage = () => {
                             }
                         </TextContainer>
                     </AboutContainer>
-                    <AboutContainer className="m-3 w-50">
+                    <AboutContainer className="mx-3 w-50">
                         <ImageOverlay ImageUrl={"/img/myself5.jpg"} Width={168}/>
                     </AboutContainer>
                 </div>

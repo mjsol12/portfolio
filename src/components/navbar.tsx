@@ -4,11 +4,11 @@ import {Link, LinkProps, useMatch, useResolvedPath} from "react-router-dom";
 import {NavigationData} from "../config/data-navs";
 import {BsList, BsX} from "react-icons/bs"
 import {devicesMax} from "../config/devices";
+import useMediaQuery from "../hooks/UseMediaQuery";
 
 const CustomLink = ({ children, to, ...props }: LinkProps)  => {
     let resolved = useResolvedPath(to);
     let match = useMatch({ path: resolved.pathname, end: true });
-
     return (
         <Link style={{ textDecoration: match ? "underline" : "none" }} to={to}{...props}>
             {children}
@@ -18,6 +18,30 @@ const CustomLink = ({ children, to, ...props }: LinkProps)  => {
 
 const NavBar = () => {
     const [open, setOpen] = useState(false);
+    const mediaTablet = useMediaQuery(devicesMax.tablet);
+    const openModal = (openM?: boolean) => {
+        if(!mediaTablet){
+            return
+        }
+        setOpen(prevState => {
+            if(!prevState) {
+                document.body.classList.add('blur');
+                document.getElementById('router-body')?.classList.add('main-blur');
+            } else {
+                document.body.classList.remove('blur');
+                document.getElementById('router-body')?.classList.remove('main-blur');
+            }
+            return openM ? openM : !prevState;
+        });
+    };
+
+    const handleClickOutside = (event: any) => {
+        const target = event.target || event.srcElement || event.currentTarget;
+        const sideNav = document.getElementById('side-nav');
+        if (sideNav && !sideNav.contains(target)){
+            openModal();
+        }
+    };
 
     return (
         <NavBarWrapper>
@@ -25,7 +49,7 @@ const NavBar = () => {
                 <HomePage className="d-flex position-relative">
                     <div>
                         <TextContainer className="container">
-                            <Link style={{ textDecoration: "none" }} to={'/home'}>
+                            <Link to={'/home'} onClick={() => open && openModal(false)}>
                                 <SectionH1>
                                     <FirstSpan>Mark</FirstSpan>
                                     <SecondSpan>Solano</SecondSpan>
@@ -35,16 +59,16 @@ const NavBar = () => {
                     </div>
                 </HomePage>
                 <NavButtonContainer>
-                    <NavButton type="button" className="btn btn-link" onClick={() => setOpen(prevState => !prevState)}>
+                    <NavButton type="button" className="btn btn-link" onClick={() => openModal()}>
                         {open ? <BsX/>:<BsList/>}
                     </NavButton>
                 </NavButtonContainer>
-                <NavShow open={open}>
-                    <ul className="nav navbar-nav navbar-right flex-md-row">
+                <NavShow onClick={e => handleClickOutside(e)} open={open}>
+                    <ul id="side-nav" className="nav navbar-nav navbar-right flex-md-row">
                         {
                             NavigationData.map((nav,index) =>
                                 <ListTag key={`list-tag-${index}`}>
-                                    <CustomLink to={nav.Section}> {nav.Label} </CustomLink>
+                                    <CustomLink to={nav.Section} onClick={() => openModal(false)}> {nav.Label} </CustomLink>
                                 </ListTag>
                             )
                         }
@@ -60,11 +84,12 @@ const NavBar = () => {
 export default NavBar
 
 const HomePage = styled.div`
+    z-index: 14;
     margin: 25px 20px 0;
 `;
 const NavShow = styled.div`
     @media ${devicesMax.tablet} {
-        display: ${(props: {open: boolean}) => props.open ? "revert": "none"};
+        visibility: ${(props: {open: boolean}) => props.open ? "visible": "hidden"};
         position: absolute;
         right: 0;
         height: 100vh;    
@@ -75,10 +100,11 @@ const NavShow = styled.div`
         ul {
             align-items: center;
             justify-content: center;
-            width: 70%;
+            width: 50%;
             direction: ltr;
             height: 100%;
             background: var(--main-color);
+            box-shadow: -10px 0px 30px -15px var(--navy-shadow);
         }
     }
 `;
@@ -155,4 +181,7 @@ const SecondSpan = styled.span`
 const TextContainer = styled.div`
     background: linear-gradient( rgb(0 0 0 / 2%), rgb(0 0 0 / 1%) );
     box-shadow: 0px 0px 10px #0000000a;
+    a {
+        text-decoration: none;
+    }
 `;
