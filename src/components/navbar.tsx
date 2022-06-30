@@ -143,7 +143,7 @@ const ListTag = styled.li`
         &:hover {
             color: var(--green);
         }
-         &:active {
+        &:active {
             color: var(--green);
         }
     }

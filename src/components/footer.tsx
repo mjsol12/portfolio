@@ -37,6 +37,7 @@ const Footer = () => {
 export default Footer;
 
 const PageFooter = styled.footer`
+    z-index: 14;
     padding: 10px;
     position: fixed !important;
     background-color: var(--main-color);
@@ -52,4 +53,7 @@ const FooterLink = styled.a`
     color: var(--white);
     text-decorator: none;
     padding: 0 3px;
+     &:hover {
+        color: var(--green);
+     }
 `;
