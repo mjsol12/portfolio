@@ -130,7 +130,7 @@ const ResumeButton = styled.a`
     padding: 2px 6px !important;
     :hover {
         color: var(--white-dart) !important;
-        background-color: #007eff45 !important;
+        background-color: #00f8ff52 !important;
     }
 `;
 
