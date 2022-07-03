@@ -6,7 +6,8 @@ import ImageOverlay from "../components/image-overly";
 import PageHeader from "../components/page-header";
 import FadeIn from "../components/fade-in";
 import {devicesMax} from "../config/devices";
-import {BsFolderSymlink, BsGithub, BsGlobe2} from "react-icons/bs";
+import {BsFolderSymlink, BsGlobe2} from "react-icons/bs";
+import {Carousel} from "react-bootstrap";
 
 const AboutPage = () => {
     const title = 'Projects';
@@ -18,10 +19,15 @@ const AboutPage = () => {
             {
                 projects.map((project, index) => <>
                         <ProjectContainer key={`Project-Featured-${index}`} className="d-flex align-items-center mb-5" rightAlignment={index % 2 == 0 }>
-                            <LeftSide className="p-4" leftAlignment={index % 2 == 0}>
+                            <LeftSide className="p-4 w-50" leftAlignment={index % 2 == 0}>
                                 <ProjectName textAlign={index % 2 == 0}>
                                     <p className="m-0 p-0">Featured Project</p>
-                                    <h3> {project.Title} </h3>
+                                    <TitleProjectFeature leftAlignment={index % 2 == 0} className="d-flex justify-content-between">
+                                        <h3> {project.Title}</h3>
+                                        <LinkContainer>
+                                            {project.WebUrl && <a className="p-2" href={project.WebUrl} target="_blank"><BsGlobe2/></a> }
+                                        </LinkContainer>
+                                    </TitleProjectFeature>
                                 </ProjectName>
                                 <ProjectDescription>
                                     <p>{project.Description}</p>
@@ -34,9 +40,7 @@ const AboutPage = () => {
                                     }
                                 </StackList>
                             </LeftSide>
-                            <ProjectImage>
-                                <ImageOverlay ImageUrl={project.ImageUrl && project.ImageUrl} Width={500}/>
-                            </ProjectImage>
+                            <CarouselImages Project={project}/>
                         </ProjectContainer>
                         {
                             (index + 1) !== projects.length  && <Divider divided={index % 2 == 0} className="d-flex align-items-center mb-5"></Divider>
@@ -56,6 +60,20 @@ const AboutPage = () => {
     </FadeIn>
 };
 export default AboutPage;
+
+const CarouselImages = ({Project}: {Project: ProjectDataType}) => {
+    return <ProjectImage className="w-50">
+        <Carousel>
+            {
+                Project.Images && Project.Images.map((img,index) =>
+                    <Carousel.Item interval={10000} key={`image-${index}`}>
+                        <ImageOverlay ImageUrl={img && img} Width={600} Height={300}/>
+                    </Carousel.Item>
+                )
+            }
+        </Carousel>
+    </ProjectImage>
+}
 
 type CardPropsType = {
     Project: ProjectDataType
@@ -92,17 +110,31 @@ const ProjectPageSection = styled.section`
 `;
 
 const ProjectContainer = styled.div`
-    direction: ${(props: {rightAlignment: boolean} )=> props.rightAlignment ? 'rtl': 'initial'}
+    direction: ${(props: {rightAlignment: boolean} )=> props.rightAlignment ? 'rtl': 'initial'};
+    @media ${devicesMax.tablet} {
+        width: 100% !important;
+        flex-direction: column;
+    }
 `;
 
 const ProjectImage = styled.div`
-     @media ${devicesMax.tablet} {
-        display: none;
+    height: 300px;
+    @media ${devicesMax.tablet} {
+        width: 100% !important;
     }
 `;
 
 const LeftSide = styled.div`
-    direction: ${(props: {leftAlignment: boolean} )=> props.leftAlignment ? 'ltr': 'initial'}
+    direction: ${(props: {leftAlignment: boolean} )=> props.leftAlignment ? 'ltr': 'initial'};
+    @media ${devicesMax.tablet} {
+        width: 100% !important;
+    }
+`;
+const TitleProjectFeature = styled.div`
+    direction: ${(props: {leftAlignment: boolean} )=> props.leftAlignment ? 'rtl': 'initial'};
+    @media ${devicesMax.tablet} {
+        width: 100% !important;
+    }
 `;
 
 const ProjectName = styled.div`

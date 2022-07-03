@@ -6,8 +6,17 @@ export const ProjectData : ProjectDataType[] = [
         Description: 'A School Grading Tool used by public teacher. ' +
             'Assigned mostly to front-end side design and layout using an Angular template, ' +
             'creating generic design and reusable components.',
-        Url: 'https://smiles.backbone.ph/login',
+        WebUrl: 'https://smiles.backbone.ph/login',
         ImageUrl: '/img/project-smiles/m-1.png',
+        Images: [
+            '/img/project-smiles/smiles-1.jpg',
+            '/img/project-smiles/smiles-2.jpg',
+            '/img/project-smiles/smiles-3.jpg',
+            '/img/project-smiles/smiles-4.jpg',
+            '/img/project-smiles/smiles-5.jpg',
+            '/img/project-smiles/smiles-6.jpg',
+            '/img/project-smiles/smiles-7.jpg'
+        ],
         Tags: [
             "Javascript",
             "TypeScript",
@@ -27,8 +36,15 @@ export const ProjectData : ProjectDataType[] = [
             'Assigned as front-end from beginning up to long term support, ' +
             'from Login Design to Reporting and Authentication, and eventually worked on backend creating api ' +
             'requirements and designed data structure.',
-        Url: '/home',
-        ImageUrl: '/img/project-outlet/login.jpg',
+        ImageUrl: '/img/project-outlet/p-3.jpg',
+        Images: [
+            '/img/project-outlet/outlet-1.jpg',
+            '/img/project-outlet/outlet-2.jpg',
+            '/img/project-outlet/outlet-3.jpg',
+            '/img/project-outlet/outlet-4.jpg',
+            '/img/project-outlet/outlet-5.jpg',
+            '/img/project-outlet/outlet-6.jpg'
+        ],
         Tags: [
             "TypeScript",
             "Angular 6+",
