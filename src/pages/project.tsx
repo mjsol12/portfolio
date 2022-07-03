@@ -5,6 +5,9 @@ import {ProjectDataType} from "../model";
 import ImageOverlay from "../components/image-overly";
 import PageHeader from "../components/page-header";
 import FadeIn from "../components/fade-in";
+import {devicesMax} from "../config/devices";
+import {BsFolderSymlink, BsGlobe2} from "react-icons/bs";
+import {Carousel} from "react-bootstrap";
 
 const AboutPage = () => {
     const title = 'Projects';
@@ -16,10 +19,15 @@ const AboutPage = () => {
             {
                 projects.map((project, index) => <>
                         <ProjectContainer key={`Project-Featured-${index}`} className="d-flex align-items-center mb-5" rightAlignment={index % 2 == 0 }>
-                            <LeftSide className="p-4" leftAlignment={index % 2 == 0}>
+                            <LeftSide className="p-4 w-50" leftAlignment={index % 2 == 0}>
                                 <ProjectName textAlign={index % 2 == 0}>
                                     <p className="m-0 p-0">Featured Project</p>
-                                    <h3> {project.Title} </h3>
+                                    <TitleProjectFeature leftAlignment={index % 2 == 0} className="d-flex justify-content-between">
+                                        <h3> {project.Title}</h3>
+                                        <LinkContainer>
+                                            {project.WebUrl && <a className="p-2" href={project.WebUrl} target="_blank"><BsGlobe2/></a> }
+                                        </LinkContainer>
+                                    </TitleProjectFeature>
                                 </ProjectName>
                                 <ProjectDescription>
                                     <p>{project.Description}</p>
@@ -32,9 +40,7 @@ const AboutPage = () => {
                                     }
                                 </StackList>
                             </LeftSide>
-                            <div>
-                                <ImageOverlay ImageUrl={project.ImageUrl && project.ImageUrl} Width={500}/>
-                            </div>
+                            <CarouselImages Project={project}/>
                         </ProjectContainer>
                         {
                             (index + 1) !== projects.length  && <Divider divided={index % 2 == 0} className="d-flex align-items-center mb-5"></Divider>
@@ -43,7 +49,7 @@ const AboutPage = () => {
                 )
             }
 
-            <PageHeader Title={"Other Projects"}/>
+            <PageHeader Title={"Others"}/>
 
             <div className="d-flex flex-wrap justify-content-center mb-5">
                 {
@@ -55,19 +61,33 @@ const AboutPage = () => {
 };
 export default AboutPage;
 
+const CarouselImages = ({Project}: {Project: ProjectDataType}) => {
+    return <ProjectImage className="w-50">
+        <Carousel>
+            {
+                Project.Images && Project.Images.map((img,index) =>
+                    <Carousel.Item interval={10000} key={`image-${index}`}>
+                        <ImageOverlay ImageUrl={img && img} Width={600} Height={300}/>
+                    </Carousel.Item>
+                )
+            }
+        </Carousel>
+    </ProjectImage>
+}
+
 type CardPropsType = {
     Project: ProjectDataType
 }
 const CardProject = ({Project}: CardPropsType) => {
   return <>
-      <div className="px-2 mt-2 mb-2 col-sm-6 col-md-4 col-lg-4">
+      <ProjectContent className="px-2 mt-2 mb-2 col-sm-6 col-md-4 col-lg-4">
           <ProjectFolder className="p-2 d-flex flex-column justify-content-between h-100">
               <div className="d-flex justify-content-between">
                   <HeadIcon>_</HeadIcon>
-                  <div className="d-flex flex-row">
-                      {Project.RepositoryUrl && <a className="px-2" href={Project.RepositoryUrl} target="_blank">Repo</a> }
-                      {Project.WebUrl && <a href={Project.WebUrl} target="_blank">Web</a> }
-                  </div>
+                  <LinkContainer className="d-flex flex-row">
+                      {Project.RepositoryUrl && <a className="p-2" href={Project.RepositoryUrl} target="_blank"><BsFolderSymlink/></a> }
+                      {Project.WebUrl && <a className="p-2" href={Project.WebUrl} target="_blank"><BsGlobe2/></a> }
+                  </LinkContainer>
               </div>
               <ProjectH6 className="m-0 d-flex justify-content-start flex-nowrap align-items-center">[{Project.Title}]</ProjectH6>
               <ProjectDescription>
@@ -81,7 +101,7 @@ const CardProject = ({Project}: CardPropsType) => {
                   }
               </StackList>
           </ProjectFolder>
-      </div>
+      </ProjectContent>
   </>
 };
 
@@ -90,11 +110,31 @@ const ProjectPageSection = styled.section`
 `;
 
 const ProjectContainer = styled.div`
-    direction: ${(props: {rightAlignment: boolean} )=> props.rightAlignment ? 'rtl': 'initial'}
+    direction: ${(props: {rightAlignment: boolean} )=> props.rightAlignment ? 'rtl': 'initial'};
+    @media ${devicesMax.tablet} {
+        width: 100% !important;
+        flex-direction: column;
+    }
+`;
+
+const ProjectImage = styled.div`
+    height: 300px;
+    @media ${devicesMax.tablet} {
+        width: 100% !important;
+    }
 `;
 
 const LeftSide = styled.div`
-    direction: ${(props: {leftAlignment: boolean} )=> props.leftAlignment ? 'ltr': 'initial'}
+    direction: ${(props: {leftAlignment: boolean} )=> props.leftAlignment ? 'ltr': 'initial'};
+    @media ${devicesMax.tablet} {
+        width: 100% !important;
+    }
+`;
+const TitleProjectFeature = styled.div`
+    direction: ${(props: {leftAlignment: boolean} )=> props.leftAlignment ? 'rtl': 'initial'};
+    @media ${devicesMax.tablet} {
+        width: 100% !important;
+    }
 `;
 
 const ProjectName = styled.div`
@@ -145,9 +185,25 @@ const Divider = styled.div`
     margin: ${(props: {divided: boolean}) => props.divided ? "0 40% 0 0": "0 0 0 40%"};
 `;
 
+const ProjectContent = styled.div`
+    :hover {
+       transform: translateY(-3px);
+       transition: var(--transition);
+    }
+`;
+
 const ProjectFolder = styled.div`
     background: var(--secondary-color);
     text-align: justify;
+`;
+
+const LinkContainer = styled.div`
+    a {
+        color: var(--white);
+        :hover {
+            color: var(--green);
+        }
+    }
 `;
 
 const HeadIcon = styled.div`

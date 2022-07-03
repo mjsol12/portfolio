@@ -8,6 +8,7 @@ export type ProjectDataType = {
     Description: string;
     Title: string;
     ImageUrl: string;
+    Images?: string[];
     Tags: string[];
     FeaturedTags?: string[];
     WebUrl?: string;

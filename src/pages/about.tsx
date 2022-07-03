@@ -3,10 +3,11 @@ import style from "styled-components";
 import ImageOverlay from "../components/image-overly";
 import PageHeader from "../components/page-header";
 import FadeIn from "../components/fade-in";
+import {devicesMax} from "../config/devices";
 
 const AboutPage = () => {
     const title = 'About me';
-    const Stacks = ["Javascript (Es6+)", "TypeScript", "React", "Angular", "Node.js"];
+    const Stacks = ["Javascript(Es6+)", "TypeScript", "React", "Angular", "Node.js"];
     const descriptions = [
         'Hello! My name is Mark Solano from Philippines and part of a team based in Belfast. ' +
         'my main responsibility as a software developer is implementing features, designing interfaces, ' +
@@ -21,8 +22,8 @@ const AboutPage = () => {
         <FadeIn className="container">
             <SectionPage id="about">
                 <PageHeader Title={title}/>
-                <div className="d-flex justify-content-center">
-                    <AboutContainer className="w-75">
+                <AboutRoot>
+                    <AboutContainer width="75%">
                         <TextContainer className="container mb-5">
                             {
                                 descriptions.map((des,index) =>
@@ -31,12 +32,12 @@ const AboutPage = () => {
                             }
                         </TextContainer>
                     </AboutContainer>
-                    <AboutContainer className="mx-3 w-50">
+                    <AboutContainer width="50%" className="mx-3">
                         <ImageOverlay ImageUrl={"/img/myself5.jpg"} Width={168}/>
                     </AboutContainer>
-                </div>
+                </AboutRoot>
                 <div>
-                    <AboutContainer className="w-50">
+                    <AboutContainer width="50%">
                         <TextContainer className="container">
                             <SectionH5>
                                 Technologies I've been working with recently
@@ -58,10 +59,22 @@ export default AboutPage
 const SectionPage = style.section`
     color: var(--white-dart);
 `;
+const AboutRoot = style.div`
+    display: flex;
+    justify-content: center;
+    @media ${devicesMax.tablet} {
+        flex-direction: column-reverse;
+    }
+`;
 
 const AboutContainer = style.div`
     position: relative;
     padding: 0;
+    width: ${(props:{width: string}) => props.width ? props.width: "100%"};
+    @media ${devicesMax.tablet} {
+        width: 100%;
+        margin: 0 !important;
+    }
 `;
 
 const SectionDescription = style.div`

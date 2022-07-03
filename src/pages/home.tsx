@@ -2,6 +2,8 @@ import React from "react";
 import styled, {keyframes} from "styled-components";
 import {Link} from "react-router-dom";
 import FadeIn from "../components/fade-in";
+import {devicesMax} from "../config/devices";
+import {BsPersonBoundingBox} from "react-icons/bs"
 
 const HomePage = () => {
     const jobTitle = "Software Developer";
@@ -23,7 +25,11 @@ const HomePage = () => {
                 </ShowIn>
                 <ShowIn><p>Specializing in building exceptional web application services.</p></ShowIn>
                 <ShowIn><p>Helping businesses minimize their cost and maximize operations.</p></ShowIn>
-                <ShowIn><Link to={"/about"} style={{ color: "var(--green)", textDecoration: "none"}}>Learn More</Link></ShowIn>
+                <ShowIn>
+                    <LinkToAbout>
+                        <Link to={"/about"}><BsPersonBoundingBox/> Learn More</Link>
+                    </LinkToAbout>
+                </ShowIn>
             </SectionPage>
         </FadeIn>
     )
@@ -58,6 +64,12 @@ const SectionPage = styled.section`
     color: var(--white-dart);
     & p {
         font-size: 0.7rem;
+    }
+    @media ${devicesMax.tablet} {
+        font-size: 1.5rem;
+        & p {
+            font-size: 1rem;
+        }
     }
 `;
 
@@ -99,7 +111,21 @@ const PositionTag = styled.h2`
         -webkit-animation-fill-mode: forwards;
         animation-delay: 1s;
     }
+    @media ${devicesMax.tablet} {
+        text-indent: 0;
+    }
 `;
 const BuilderTag = styled.h3`
     line-height: 5;
+    @media ${devicesMax.tablet} {
+        font-size: 2rem;
+        line-height: 1;
+    }
+`;
+
+const LinkToAbout = styled.div`
+    a {
+        text-decoration: none;
+        color: var(--green);
+    }
 `;
