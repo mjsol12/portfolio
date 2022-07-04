@@ -3,11 +3,18 @@ export type NavDataType = {
     Section: string;
 }
 
+type ImageType = {
+    Url: string,
+    Name: string
+}
+
 export type ProjectDataType = {
+    Id?: string;
     Url?: string;
     Description: string;
     Title: string;
     ImageUrl: string;
+    Images?: ImageType[];
     Tags: string[];
     FeaturedTags?: string[];
     WebUrl?: string;

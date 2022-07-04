@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import {devicesMax} from "../config/devices";
 
 type PageHeaderType = {
     Title: string;
@@ -14,6 +15,7 @@ const SectionH1 = styled.h1`
     font-size: 50px;
     font-weight: 800;
     margin-bottom: 50px;
+    white-space: nowrap;
     display:flex;
     align-items: center;
     ::after {
@@ -24,5 +26,9 @@ const SectionH1 = styled.h1`
         height: 1px;
         margin-left: 20px;
         background-color: var(--white-dart-light);
+    }
+    @media ${devicesMax.tablet} {
+        font-size: 2rem;
+        margin: 0 !important;
     }
 `;
