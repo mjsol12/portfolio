@@ -8,7 +8,7 @@ import Footer from "./components/footer";
 const App = () => {
     return (
         <main>
-            <FadeIn>
+            <FadeIn  key={`App-Main-Page`}>
                 <NavBar/>
                 <section id="router-body" className="d-flex mb-5">
                     <Outlet />

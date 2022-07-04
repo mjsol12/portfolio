@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import styled from "styled-components";
 import {ProjectData, SmallProjectsData} from "../config/project-data";
 import {ProjectDataType} from "../model";
@@ -9,23 +9,21 @@ import {devicesMax} from "../config/devices";
 import {BsFolderSymlink, BsGlobe2} from "react-icons/bs";
 import {Carousel} from "react-bootstrap";
 
-const AboutPage = () => {
+const ProjectPage = () => {
     const title = 'Projects';
-    const projects: ProjectDataType[] = ProjectData;
-    const subProjects: ProjectDataType[] = SmallProjectsData;
     return <FadeIn className="container mb-5">
         <ProjectPageSection id="project"  >
-            <PageHeader Title={title}/>
+            <PageHeader key="Project-title" Title={title}/>
             {
-                projects.map((project, index) => <>
-                        <ProjectContainer key={`Project-Featured-${index}`} className="d-flex align-items-center mb-5" rightAlignment={index % 2 == 0 }>
+                ProjectData && ProjectData.map((project, index) => <Fragment key={project.Id}>
+                        <ProjectContainer  className="d-flex align-items-center mb-5" rightAlignment={index % 2 == 0 }>
                             <LeftSide className="p-4 w-50" leftAlignment={index % 2 == 0}>
                                 <ProjectName textAlign={index % 2 == 0}>
                                     <p className="m-0 p-0">Featured Project</p>
                                     <TitleProjectFeature leftAlignment={index % 2 == 0} className="d-flex justify-content-between">
-                                        <h3> {project.Title}</h3>
+                                        <h2> {project.Title}</h2>
                                         <LinkContainer>
-                                            {project.WebUrl && <a className="p-2" href={project.WebUrl} target="_blank"><BsGlobe2/></a> }
+                                            {project.WebUrl && <a aria-label={project.WebUrl} className="p-2" href={project.WebUrl} target="_blank"><BsGlobe2/></a> }
                                         </LinkContainer>
                                     </TitleProjectFeature>
                                 </ProjectName>
@@ -35,7 +33,7 @@ const AboutPage = () => {
                                 <StackList>
                                     {
                                         project.Tags.map((tag, index) =>
-                                            <StackItem key={`tag-${tag}-${index}`} >{tag}</StackItem>
+                                            <StackItem key={`project-tag-${tag}-${index}`} >{tag}</StackItem>
                                         )
                                     }
                                 </StackList>
@@ -43,31 +41,29 @@ const AboutPage = () => {
                             <CarouselImages Project={project}/>
                         </ProjectContainer>
                         {
-                            (index + 1) !== projects.length  && <Divider divided={index % 2 == 0} className="d-flex align-items-center mb-5"></Divider>
+                            (index + 1) !== ProjectData.length  && <Divider divided={index % 2 == 0} className="d-flex align-items-center mb-5"></Divider>
                         }
-                    </>
+                    </Fragment>
                 )
             }
 
-            <PageHeader Title={"Others"}/>
+            <PageHeader key={"Other-Project"} Title={"Others"}/>
 
             <div className="d-flex flex-wrap justify-content-center mb-5">
-                {
-                    subProjects.map((project, index) => <CardProject Project={project} key={`Project-Card-${index}`}/>)
-                }
+                <CardProject SmallProjects={SmallProjectsData}/>
             </div>
         </ProjectPageSection>
     </FadeIn>
 };
-export default AboutPage;
+export default ProjectPage;
 
 const CarouselImages = ({Project}: {Project: ProjectDataType}) => {
     return <ProjectImage className="w-50">
         <Carousel>
             {
-                Project.Images && Project.Images.map((img,index) =>
+                Project.Images && Project.Images.map(( i,index): any =>
                     <Carousel.Item interval={10000} key={`image-${index}`}>
-                        <ImageOverlay ImageUrl={img && img} Width={600} Height={300}/>
+                        <ImageOverlay alt={i.Name} ImageUrl={i.Url && i.Url} Width={600} Height={300}/>
                     </Carousel.Item>
                 )
             }
@@ -75,34 +71,35 @@ const CarouselImages = ({Project}: {Project: ProjectDataType}) => {
     </ProjectImage>
 }
 
-type CardPropsType = {
-    Project: ProjectDataType
-}
-const CardProject = ({Project}: CardPropsType) => {
-  return <>
-      <ProjectContent className="px-2 mt-2 mb-2 col-sm-6 col-md-4 col-lg-4">
-          <ProjectFolder className="p-2 d-flex flex-column justify-content-between h-100">
-              <div className="d-flex justify-content-between">
-                  <HeadIcon>_</HeadIcon>
-                  <LinkContainer className="d-flex flex-row">
-                      {Project.RepositoryUrl && <a className="p-2" href={Project.RepositoryUrl} target="_blank"><BsFolderSymlink/></a> }
-                      {Project.WebUrl && <a className="p-2" href={Project.WebUrl} target="_blank"><BsGlobe2/></a> }
-                  </LinkContainer>
-              </div>
-              <ProjectH6 className="m-0 d-flex justify-content-start flex-nowrap align-items-center">[{Project.Title}]</ProjectH6>
-              <ProjectDescription>
-                  <p>{Project.Description}</p>
-              </ProjectDescription>
-              <StackList>
-                  {
-                      Project.FeaturedTags && Project.FeaturedTags.map(tag =>
-                          <StackItem>{tag}</StackItem>
-                      )
-                  }
-              </StackList>
-          </ProjectFolder>
-      </ProjectContent>
-  </>
+const CardProject = ({SmallProjects}: {SmallProjects: ProjectDataType[]}) => {
+    return <>
+        {
+            SmallProjects.map((project, index) =>
+                <ProjectContent key={`carded-projext-#${index}`} className="px-2 mt-2 mb-2 col-sm-6 col-md-4 col-lg-4">
+                    <ProjectFolder className="p-2 d-flex flex-column justify-content-between h-100">
+                        <div className="d-flex justify-content-between">
+                            <HeadIcon>_</HeadIcon>
+                            <LinkContainer className="d-flex flex-row">
+                                {project.RepositoryUrl && <a aria-label={project.RepositoryUrl} className="p-2" href={project.RepositoryUrl} target="_blank"><BsFolderSymlink/></a> }
+                                {project.WebUrl && <a aria-label={project.WebUrl} className="p-2" href={project.WebUrl} target="_blank"><BsGlobe2/></a> }
+                            </LinkContainer>
+                        </div>
+                        <ProjectH2 className="m-0 d-flex justify-content-start flex-nowrap align-items-center">[{project.Title}]</ProjectH2>
+                        <ProjectDescription>
+                            <p>{project.Description}</p>
+                        </ProjectDescription>
+                        <StackList>
+                            {
+                                project.FeaturedTags && project.FeaturedTags.map((tag, index) =>
+                                    <StackItem key={`tag-${index}`}>{tag}</StackItem>
+                                )
+                            }
+                        </StackList>
+                    </ProjectFolder>
+                </ProjectContent>
+            )
+        }
+    </>
 };
 
 const ProjectPageSection = styled.section`
@@ -143,7 +140,7 @@ const ProjectName = styled.div`
         color: var(--green);
         font-size: 12px;
     } 
-    & h3 {
+    & h2 {
         margin: 0;
     }
     & h1 {
@@ -210,7 +207,7 @@ const HeadIcon = styled.div`
     visibility: hidden;
 `;
 
-const ProjectH6 = styled.h6`
+const ProjectH2 = styled.h2`
     ::before {
         content: "";
         display: block;

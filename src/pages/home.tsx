@@ -8,7 +8,7 @@ import {BsPersonBoundingBox} from "react-icons/bs"
 const HomePage = () => {
     const jobTitle = "Software Developer";
     return (
-        <FadeIn className="container" >
+        <FadeIn key={'Home-Page'} className="container" >
             <SectionPage id="home" >
                 <div>
                     <IntroTag>
@@ -61,7 +61,7 @@ const ShowIn = styled.div`
 `;
 
 const SectionPage = styled.section`
-    color: var(--white-dart);
+    color: var(--white-dart) !important;
     & p {
         font-size: 0.7rem;
     }

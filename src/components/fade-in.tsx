@@ -4,8 +4,8 @@ type FadeinPageType = {
     className?: JSX.ElementClass | any;
     children: | JSX.Element | JSX.Element[] | string | string[];
 };
-const FadeIn = ({ className = null, children}: FadeinPageType) => {
-    return(<FadeInContainer className={className}>
+const FadeIn = ({ className = null, children, ...props}: FadeinPageType) => {
+    return(<FadeInContainer {...props} className={className}>
         { children }
     </FadeInContainer>)
 };

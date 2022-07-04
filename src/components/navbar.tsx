@@ -10,7 +10,7 @@ const CustomLink = ({ children, to, ...props }: LinkProps)  => {
     let resolved = useResolvedPath(to);
     let match = useMatch({ path: resolved.pathname, end: true });
     return (
-        <Link style={{ textDecoration: match ? "underline" : "none" }} to={to}{...props}>
+        <Link style={{ textDecoration: match ? "underline" : "none" }} to={to} {...props}>
             {children}
         </Link>
     );
@@ -59,8 +59,8 @@ const NavBar = () => {
                     </div>
                 </HomePage>
                 <NavButtonContainer>
-                    <NavButton type="button" className="btn btn-link" onClick={() => openModal()}>
-                        {open ? <BsX/>:<BsList/>}
+                    <NavButton type="button" aria-label="Expand Mobile Button" className="btn btn-link" onClick={() => openModal()}>
+                        {open ? <BsX aria-hidden="true"/>:<BsList aria-hidden="true"/>}
                     </NavButton>
                 </NavButtonContainer>
                 <NavShow onClick={e => handleClickOutside(e)} open={open}>
@@ -68,7 +68,7 @@ const NavBar = () => {
                         {
                             NavigationData.map((nav,index) =>
                                 <ListTag key={`list-tag-${index}`}>
-                                    <CustomLink to={nav.Section} onClick={() => openModal(false)}> {nav.Label} </CustomLink>
+                                    <CustomLink to={nav.Section} onClick={() => openModal(false)} > {nav.Label} </CustomLink>
                                 </ListTag>
                             )
                         }

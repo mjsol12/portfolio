@@ -9,7 +9,7 @@ const HomePage = () => {
     const title = 'Experience';
     const experiences: ExperienceType[] = Experiences;
     return (
-        <FadeIn className="container" >
+        <FadeIn key={'Experience-Page'} className="container" >
             <SectionPage id="experience">
                 <PageHeader Title={title}/>
                 <div className="d-flex flex-column">
@@ -17,10 +17,10 @@ const HomePage = () => {
                         experiences.map((exp,index) =>
                             <div key={`experience-${index}`} className="mb-5">
                                 <div className="d-flex flex-column">
-                                    <h3>{ exp.Url ? <a href={exp.Url} target="_blank">{exp.Company}</a> : exp.Company}</h3>
-                                    <SectionH3 className="m-0">{exp.Position}</SectionH3>
+                                    { exp.Url ? <LinkTab href={exp.Url} target="_blank"><h2>{exp.Company}</h2></LinkTab> : <h2>{exp.Company}</h2>}
+                                    <SectionH2 className="m-0">{exp.Position}</SectionH2>
                                 </div>
-                                <SectionH5 className="mb-4">{exp.Year}</SectionH5>
+                                <SectionH3 className="mb-4">{exp.Year}</SectionH3>
                                 <div>Job Descriptions</div>
                                 <ul>
                                     {
@@ -54,13 +54,13 @@ const SectionPage = styled.section`
     }
 `;
 
-const SectionH3 = styled.h3`
+const SectionH2 = styled.h2`
         margin-left: 20px;
         background-color: var(--white-dart-light);
         font-size: 1.5rem;
         padding: 0px 20px;
 `;
-const SectionH5 = styled.h5`
+const SectionH3 = styled.h3`
     text-indent: 25px;
     font-size: 1rem;
 `;
@@ -68,4 +68,8 @@ const SectionH5 = styled.h5`
 const List = styled.li`
     list-style-type: disclosure-closed;
     font-size: .7rem;
+`;
+
+const LinkTab = styled.a`
+    color: var(--green) !important;
 `;

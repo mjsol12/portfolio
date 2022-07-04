@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ImgHTMLAttributes} from 'react';
 import style from "styled-components";
 
 type ImageOverlyType = {
@@ -7,11 +7,11 @@ type ImageOverlyType = {
     Height?: number;
 }
 
-export default ({ImageUrl, Width, Height}: ImageOverlyType) => {
+export default ({ImageUrl, Width, Height , ...props}: ImageOverlyType & ImgHTMLAttributes<HTMLImageElement> ) => {
     return (
         <TextContainer className="container">
             <ImageContainer>
-                <img width={Width ?? Width} height={Height ?? Height} src={ImageUrl}/>
+                <img width={Width ?? Width} height={Height ?? Height} src={ImageUrl} {...props}/>
             </ImageContainer>
             <Overly></Overly>
         </TextContainer>

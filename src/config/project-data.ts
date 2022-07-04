@@ -2,6 +2,7 @@ import {ProjectDataType} from "../model";
 
 export const ProjectData : ProjectDataType[] = [
     {
+        Id: 'f900814c-d799-4486-b4d7-bae2b0c20851',
         Title: 'Smiles',
         Description: 'A School Grading Tool used by public teacher. ' +
             'Assigned mostly to front-end side design and layout using an Angular template, ' +
@@ -9,13 +10,13 @@ export const ProjectData : ProjectDataType[] = [
         WebUrl: 'https://smiles.backbone.ph/login',
         ImageUrl: '/img/project-smiles/m-1.png',
         Images: [
-            '/img/project-smiles/smiles-1.jpg',
-            '/img/project-smiles/smiles-2.jpg',
-            '/img/project-smiles/smiles-3.jpg',
-            '/img/project-smiles/smiles-4.jpg',
-            '/img/project-smiles/smiles-5.jpg',
-            '/img/project-smiles/smiles-6.jpg',
-            '/img/project-smiles/smiles-7.jpg'
+            {Url: '/img/project-smiles/smiles-1.jpg', Name: 'Smiles Login Page'},
+            {Url: '/img/project-smiles/smiles-2.jpg', Name: 'Smiles Home Page'},
+            {Url: '/img/project-smiles/smiles-3.jpg', Name: 'Smiles Profile Page'},
+            {Url: '/img/project-smiles/smiles-4.jpg', Name: 'Smiles School Page'},
+            {Url: '/img/project-smiles/smiles-5.jpg', Name: 'Smiles Section Page'},
+            {Url: '/img/project-smiles/smiles-6.jpg', Name: 'Smiles Table Page'},
+            {Url: '/img/project-smiles/smiles-7.jpg', Name: 'Smiles Responsive Page'}
         ],
         Tags: [
             "Javascript",
@@ -31,6 +32,7 @@ export const ProjectData : ProjectDataType[] = [
         ]
     },
     {
+        Id: 'b1480ac0-18a8-4f4a-8fc9-5d4dd0d086cc',
         Title: 'Outlet',
         Description: 'A locally financed system by local businessman. ' +
             'Assigned as front-end from beginning up to long term support, ' +
@@ -38,12 +40,12 @@ export const ProjectData : ProjectDataType[] = [
             'requirements and designed data structure.',
         ImageUrl: '/img/project-outlet/p-3.jpg',
         Images: [
-            '/img/project-outlet/outlet-1.jpg',
-            '/img/project-outlet/outlet-2.jpg',
-            '/img/project-outlet/outlet-3.jpg',
-            '/img/project-outlet/outlet-4.jpg',
-            '/img/project-outlet/outlet-5.jpg',
-            '/img/project-outlet/outlet-6.jpg'
+            {Url:'/img/project-outlet/outlet-1.jpg', Name: 'Outlet Login Page'},
+            {Url:'/img/project-outlet/outlet-2.jpg', Name: 'Outlet 2 Login Page'},
+            {Url:'/img/project-outlet/outlet-3.jpg', Name: 'Outlet Summary Page'},
+            {Url:'/img/project-outlet/outlet-4.jpg', Name: 'Outlet System Settings Page'},
+            {Url:'/img/project-outlet/outlet-5.jpg', Name: 'Outlet Users Page'},
+            {Url:'/img/project-outlet/outlet-6.jpg', Name: 'Outet SMS-Logs Page'}
         ],
         Tags: [
             "TypeScript",
