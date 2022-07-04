@@ -7,17 +7,20 @@ const Footer = () => {
         {
             icon: <BsGithub/>,
             target: '_blank',
-            href:'https://github.com/mjsol12'
+            href:'https://github.com/mjsol12',
+            title: "Github"
         },
         {
             icon: <BsLinkedin/>,
             target: '_blank',
-            href:'https://www.linkedin.com/in/mark-jones-solano-b17624147'
+            href:'https://www.linkedin.com/in/mark-jones-solano-b17624147',
+            title: 'LinkIn'
         },
         {
             icon: <BsGoogle/>,
             target: '_self',
-            href:'mailto:mjsolano12345@gmail.com'
+            href:'mailto:mjsolano12345@gmail.com',
+            title: 'Google Account'
         }
     ];
     return (
@@ -25,8 +28,8 @@ const Footer = () => {
             <div className="container text-center">
                 <FooterText className="mb-0">Built & Created By Mark Solano
                     {
-                        footer.map(val =>
-                            <FooterLink target={val.target} href={val.href}>{val.icon}</FooterLink>
+                        footer.map((val, index) =>
+                            <FooterLink key={`footer-icons#${index}`} aria-label={val.title} target={val.target} href={val.href}>{val.icon}</FooterLink>
                         )
                     }
                 </FooterText>
@@ -43,7 +46,7 @@ const PageFooter = styled.footer`
     background-color: var(--main-color);
 `;
 const FooterText = styled.p`
-    color: #748182;
+    color: var(--white-dart);
     margin: 0;
     line-height: 1.6;
     font-size: 13px;
