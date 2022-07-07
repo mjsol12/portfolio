@@ -115,9 +115,9 @@ const ProjectContainer = styled.div`
 `;
 
 const ProjectImage = styled.div`
-    height: 300px;
     @media ${devicesMax.tablet} {
         width: 100% !important;
+        margin-bottom: 0px !important;
     }
 `;
 
@@ -138,7 +138,6 @@ const ProjectName = styled.div`
     text-align: ${(props: {textAlign: boolean}) => props.textAlign ? "right": "left"};
     & p {
         color: var(--green);
-        font-size: 12px;
     } 
     & h2 {
         margin: 0;
@@ -154,9 +153,8 @@ const ProjectName = styled.div`
     }
 `;
 
-const StackItem = styled.div`
+const StackItem = styled.p`
     color: var(--green);
-    font-size: .7rem;
     margin: 0 8px;
 `;
 const StackList = styled.div`
@@ -170,7 +168,6 @@ const ProjectDescription = styled.div`
     padding: 24px;
     text-align: justify;
     & p {
-        font-size: .7rem;
         margin: 0;
         text-align: justify;
         text-indent: 1rem;

@@ -13,7 +13,7 @@ const AboutPage = () => {
                 <PageHeader Title={title}/>
                 <AboutRoot>
                     <AboutContainer width="75%">
-                        <TextContainer className="container mb-5">
+                        <TextContainer className="container mb-3">
                             <SectionDescription>
                                 Hello! My name is Mark Solano from Philippines and part of a team based in Belfast.
                                 my main responsibility as a software developer is implementing features, designing interfaces,
@@ -71,6 +71,7 @@ const AboutRoot = style.div`
 const AboutContainer = style.div`
     position: relative;
     padding: 0;
+    align-self: center;
     width: ${(props:{width: string}) => props.width ? props.width: "100%"};
     @media ${devicesMax.tablet} {
         width: 100%;
@@ -78,8 +79,7 @@ const AboutContainer = style.div`
     }
 `;
 
-const SectionDescription = style.div`
-    font-size: .8rem;
+const SectionDescription = style.p`
     font-weight: 200;
     text-indent: 1.5rem;
     text-align: justify;

@@ -49,9 +49,6 @@ export default HomePage
 
 const SectionPage = styled.section`
     color: var(--white-dart);
-    & p {
-        font-size: 0.7rem;
-    }
 `;
 
 const SectionH2 = styled.h2`
@@ -67,7 +64,7 @@ const SectionH3 = styled.h3`
 
 const List = styled.li`
     list-style-type: disclosure-closed;
-    font-size: .7rem;
+    font-size: var(--font-size);
 `;
 
 const LinkTab = styled.a`

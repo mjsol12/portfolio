@@ -11,10 +11,15 @@ html {
   --h-footer: 2.5rem;
   --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
   --navy-shadow: rgba(2,12,27,0.7);
+  --font-size: .8rem;
 }
 html {
   box-sizing: border-box;
   width: 100%;
+}
+
+p {
+  font-size: var(--font-size);
 }
 
 .blur {
@@ -41,7 +46,7 @@ body {
 
 @media (min-width: 30em) {
   html {
-    font-size: 125%;
+    font-size: 125% !important;
   }
 }
 

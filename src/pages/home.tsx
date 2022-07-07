@@ -27,7 +27,7 @@ const HomePage = () => {
                 <ShowIn><p>Helping businesses minimize their cost and maximize operations.</p></ShowIn>
                 <ShowIn>
                     <LinkToAbout>
-                        <Link to={"/about"}><BsPersonBoundingBox/> Learn More</Link>
+                        <Link to={"/about"}><BsPersonBoundingBox/> Check me out</Link>
                     </LinkToAbout>
                 </ShowIn>
             </SectionPage>
@@ -62,9 +62,6 @@ const ShowIn = styled.div`
 
 const SectionPage = styled.section`
     color: var(--white-dart) !important;
-    & p {
-        font-size: 0.7rem;
-    }
     @media ${devicesMax.tablet} {
         font-size: 1.5rem;
         & p {
@@ -127,5 +124,9 @@ const LinkToAbout = styled.div`
     a {
         text-decoration: none;
         color: var(--green);
+        border: 2px solid var(--green);
+        border-radius: 4px;
+        padding: 6px;
+        font-size: 1rem;
     }
 `;
