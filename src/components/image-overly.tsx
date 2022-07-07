@@ -1,5 +1,6 @@
 import React, {ImgHTMLAttributes} from 'react';
 import style from "styled-components";
+import {devicesMax} from "../config/devices";
 
 type ImageOverlyType = {
     ImageUrl: string;
@@ -20,6 +21,12 @@ export default ({ImageUrl, Width, Height , ...props}: ImageOverlyType & ImgHTMLA
 
 const ImageContainer = style.div`
     text-align: center;
+    @media ${devicesMax.tablet} {
+        img {
+            width: 80%;
+            height: 100%;
+        }
+    }
 `;
 
 const TextContainer = style.div`
