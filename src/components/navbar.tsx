@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import {Link, LinkProps, useMatch, useResolvedPath} from "react-router-dom";
 import {NavigationData} from "../config/data-navs";
-import {BsList, BsX} from "react-icons/bs"
+import {BsGithub, BsGoogle, BsLinkedin, BsList, BsX} from "react-icons/bs"
 import {devicesMax} from "../config/devices";
 import useMediaQuery from "../hooks/UseMediaQuery";
 
@@ -19,6 +19,26 @@ const CustomLink = ({ children, to, ...props }: LinkProps)  => {
 const NavBar = () => {
     const [open, setOpen] = useState(false);
     const mediaTablet = useMediaQuery(devicesMax.tablet);
+    const footer = [
+        {
+            icon: <BsGithub/>,
+            target: '_blank',
+            href:'https://github.com/mjsol12',
+            title: "Github"
+        },
+        {
+            icon: <BsLinkedin/>,
+            target: '_blank',
+            href:'https://www.linkedin.com/in/mark-jones-solano-b17624147',
+            title: 'LinkIn'
+        },
+        {
+            icon: <BsGoogle/>,
+            target: '_self',
+            href:'mailto:mjsolano12345@gmail.com',
+            title: 'Google Account'
+        }
+    ];
     const openModal = (openM?: boolean) => {
         if(!mediaTablet){
             return
@@ -75,6 +95,13 @@ const NavBar = () => {
                         <ListTag>
                             <ResumeButton href="/files/Mark_Solano_Resume.pdf" target="_blank">Resume</ResumeButton>
                         </ListTag>
+                        {
+                            footer.map((val, index) =>
+                                <ListTag2 key={`social-media-tag-${index}`}>
+                                    <SocialMediaLink key={`footer-icons#${index}`} aria-label={val.title} target={val.target} href={val.href}>{val.icon}</SocialMediaLink>
+                                </ListTag2>
+                            )
+                        }
                     </ul>
                 </NavShow>
             </nav>
@@ -88,6 +115,7 @@ const HomePage = styled.div`
     margin: 25px 20px 0;
 `;
 const NavShow = styled.div`
+    display: flex;
     @media ${devicesMax.tablet} {
         visibility: ${(props: {open: boolean}) => props.open ? "visible": "hidden"};
         position: absolute;
@@ -127,16 +155,31 @@ const ResumeButton = styled.a`
     color: var(--white-dart)!important;
     border: 2px solid var(--white-dart);
     border-radius: 4px;
-    padding: 2px 6px !important;
+    padding: 0px 6px !important;
     :hover {
         color: var(--white-dart) !important;
-        background-color: #00f8ff52 !important;
+        background-color: var(--green-light) !important;
     }
 `;
 
 const ListTag = styled.li`
     list-style: none;
     margin: 25px 20px 0;
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover {
+            color: var(--green);
+        }
+        &:active {
+            color: var(--green);
+        }
+    }
+`;
+
+const ListTag2 = styled.li`
+    list-style: none;
+    margin: 25px 10px 0;
     a {
         text-decoration: none;
         color: inherit;
@@ -158,6 +201,7 @@ const NavBarWrapper = styled.header`
     width: 100%;
     min-height: 60px;
     color: var(--white-dart);
+    border-bottom: 1px solid #ebebeb;
     @media ${devicesMax.mobileL} {
         padding: 0 !important;
         margin: 0;
@@ -171,8 +215,8 @@ const SectionH1 = styled.h1`
 
 const FirstSpan = styled.span`
     font-weight: 500;
-    background: var(--white-pure);
-    color: var(--navy); 
+    background: var(--dark-slate);
+    color: var(--white-pure); 
     padding: 0px 6px;
 `;
 
@@ -183,9 +227,20 @@ const SecondSpan = styled.span`
 `;
 
 const TextContainer = styled.div`
-    background: linear-gradient( rgb(0 0 0 / 2%), rgb(0 0 0 / 1%) );
-    box-shadow: 0px 0px 10px #0000000a;
     a {
         text-decoration: none;
     }
+`;
+
+const SocialMediaLink = styled.a`
+    color: var(--white);
+    text-decorator: none;
+    padding: 0 3px;
+    svg {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+     &:hover {
+        color: var(--green);
+     }
 `;

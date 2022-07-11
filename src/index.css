@@ -1,17 +1,18 @@
 html {
-  --white-dart: #e6f1ff;
+  --white-dart: #0a192f;
   --white-dart-light: #e6f1ff47;
-  --green: #00f8ffe3;
+  --green: #006ac8;
+  --green-light: rgba(0, 106, 200, 0.71);
   --dark-slate: #495670;
   --navy: #0a192f;
-  --main-color: #002131;
-  --secondary-color: #013954;
+  --main-color: #ffffff;
+  --secondary-color: #dadada;
   --white-pure: #fff;
   --h-header: 6rem;
   --h-footer: 2.5rem;
   --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
   --navy-shadow: rgba(2,12,27,0.7);
-  --font-size: .8rem;
+  --font-size: 1rem;
 }
 html {
   box-sizing: border-box;
@@ -33,21 +34,20 @@ p {
   user-select: none;
 }
 
+svg {
+  min-height: 1.3rem !important;
+  min-width: 1.3rem !important;
+}
+
 body {
   margin: 0;
   width: 100%;
   min-height: 100%;
-  font-family:  "SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace !important;
+  font-family:  "DM Sans", monospace !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--main-color) !important;
   color: var(--white-dart);
-}
-
-@media (min-width: 30em) {
-  html {
-    font-size: 125% !important;
-  }
 }
 
 
@@ -68,20 +68,3 @@ body {
   border-radius: 10px;
 }
 
-/*@media (min-width: 40em) {*/
-/*  html {*/
-/*    font-size: 150%;*/
-/*  }*/
-/*}*/
-
-/*@media (min-width: 50em) {*/
-/*  html {*/
-/*    font-size: 175%;*/
-/*  }*/
-/*}*/
-
-/*@media (min-width: 60em) {*/
-/*  html {*/
-/*    font-size: 200%;*/
-/*  }*/
-/*}*/

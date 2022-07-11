@@ -62,7 +62,7 @@ const CarouselImages = ({Project}: {Project: ProjectDataType}) => {
         <Carousel>
             {
                 Project.Images && Project.Images.map(( i,index): any =>
-                    <Carousel.Item interval={10000} key={`image-${index}`}>
+                    <Carousel.Item key={`image-${index}`}>
                         <ImageOverlay alt={i.Name} ImageUrl={i.Url && i.Url} Width={600} Height={300}/>
                     </Carousel.Item>
                 )

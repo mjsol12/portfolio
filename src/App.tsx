@@ -3,7 +3,6 @@ import './App.css';
 import {NavBar} from "./components";
 import {Outlet} from "react-router-dom";
 import FadeIn from './components/fade-in';
-import Footer from "./components/footer";
 
 const App = () => {
     return (
@@ -13,7 +12,6 @@ const App = () => {
                 <section id="router-body" className="d-flex mb-5">
                     <Outlet />
                 </section>
-                <Footer/>
             </FadeIn>
         </main>
     )

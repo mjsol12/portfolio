@@ -15,25 +15,24 @@ const AboutPage = () => {
                     <AboutContainer width="75%">
                         <TextContainer className="container mb-3">
                             <SectionDescription>
-                                Hello! My name is Mark Solano from Philippines and part of a team based in Belfast.
-                                my main responsibility as a software developer is implementing features, designing interfaces,
-                                maintaining bug-free code, and keeping stack skills up to date.
-                                I have had the privilege of working with people who are experienced software engineers and collaborate with them.
+                                Hello! I'm Mark Solano, a Software Developer from the Philippines and part of a team based in Belfast.
+                                I've been in the industry for a while now and
+                                I have had the privilege of working with people who are experienced software engineers and collaborating with them.
                             </SectionDescription>
                             <SectionDescription>
-                                Although my graduate degree was on social degree.
-                                My love to create out of the box and a continuing learning path lead me to my career.
+                                Throughout my career, I've had the privilege of working at some of our local business agencies, a government school, a start-up, and a huge-corporation.
+                                I'm currently focused on delivering inclusive and clean software for the company.
                             </SectionDescription>
                             <SectionDescription>
-                                I love to travel using a motorcycle; take landscape pictures;
+                                Some of my hobbies are travelling using a motorcycle, take landscape pictures (my town is surrounded by mountains),
                                 meet friends and family over the weekend; read articles, news and books,
                                 and occasionally play online games.
                             </SectionDescription>
                         </TextContainer>
                     </AboutContainer>
-                    <AboutContainer width="50%" className="mx-3">
+                    <SideImage width="50%" className="mx-3">
                         <ImageOverlay alt="Mark Solano Image" ImageUrl={"/img/myself5.jpg"} Width={168}/>
-                    </AboutContainer>
+                    </SideImage>
                 </AboutRoot>
                 <div>
                     <AboutContainer width="50%">
@@ -79,6 +78,17 @@ const AboutContainer = style.div`
     }
 `;
 
+const SideImage = style.div`
+    position: relative;
+    padding: 0;
+    align-self: center;
+    width: ${(props:{width: string}) => props.width ? props.width: "100%"};
+    @media ${devicesMax.tablet} {
+        width: 50%;
+        margin: 0 !important;
+    }
+`;
+
 const SectionDescription = style.p`
     font-weight: 200;
     text-indent: 1.5rem;
@@ -92,8 +102,6 @@ const SectionH2 = style.h2`
 `;
 
 const TextContainer = style.div`
-    background: linear-gradient( rgb(0 0 0 / 2%), rgb(0 0 0 / 1%) );
-    box-shadow: 0px 0px 10px #0000000a;
     position: relative;
     padding: 0;
 `;

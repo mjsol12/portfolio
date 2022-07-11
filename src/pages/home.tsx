@@ -9,7 +9,7 @@ const HomePage = () => {
     const jobTitle = "Software Developer";
     return (
         <FadeIn key={'Home-Page'} className="container" >
-            <SectionPage id="home" >
+            <SectionPage id="home" className="pt-5">
                 <div>
                     <IntroTag>
                         <span>Hi, I'm a</span>
@@ -23,7 +23,7 @@ const HomePage = () => {
                 <ShowIn>
                     <BuilderTag>I build things for the web.</BuilderTag>
                 </ShowIn>
-                <ShowIn><p>Specializing in building exceptional web application services.</p></ShowIn>
+                <ShowIn><p>Specialized in building exceptional web application services.</p></ShowIn>
                 <ShowIn><p>Helping businesses minimize their cost and maximize operations.</p></ShowIn>
                 <ShowIn>
                     <LinkToAbout>

@@ -5,7 +5,7 @@ import {Experiences} from "../config/experience";
 import {ExperienceType} from "../model";
 import FadeIn from "../components/fade-in";
 
-const HomePage = () => {
+const ExperiencePage = () => {
     const title = 'Experience';
     const experiences: ExperienceType[] = Experiences;
     return (
@@ -45,10 +45,13 @@ const HomePage = () => {
         </FadeIn>
     )
 };
-export default HomePage
+export default ExperiencePage
 
 const SectionPage = styled.section`
     color: var(--white-dart);
+    ul{
+        list-style: none;
+    }
 `;
 
 const SectionH2 = styled.h2`
@@ -62,9 +65,17 @@ const SectionH3 = styled.h3`
     font-size: 1rem;
 `;
 
-const List = styled.li`
-    list-style-type: disclosure-closed;
+const List = styled.li` 
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 20px;
     font-size: var(--font-size);
+    ::before {
+        content: "▹";
+        position: absolute;
+        left: 0px;
+        color: var(--white-dart);
+    }
 `;
 
 const LinkTab = styled.a`
