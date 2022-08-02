@@ -4,37 +4,132 @@ import {Link} from "react-router-dom";
 import FadeIn from "../components/fade-in";
 import {devicesMax} from "../config/devices";
 import {BsPersonBoundingBox} from "react-icons/bs"
+import {loadFull} from "tsparticles";
+import Particles from "react-tsparticles";
 
 const HomePage = () => {
     const jobTitle = "Software Developer";
+
+    const particlesInit = async (main: any) => {
+        // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+        // starting from v2 you can add only the features you need reducing the bundle size
+        await loadFull(main);
+    };
+
     return (
         <FadeIn key={'Home-Page'} className="container" >
-            <SectionPage id="home" className="pt-5">
-                <div>
-                    <IntroTag>
-                        <span>Hi, I'm a</span>
-                    </IntroTag>
-                </div>
-                <div>
-                    <PositionTag>
-                        <span>{jobTitle}</span>
-                    </PositionTag>
-                </div>
-                <ShowIn>
-                    <BuilderTag>I build things for the web.</BuilderTag>
-                </ShowIn>
-                <ShowIn><p>Specialized in building exceptional web application services.</p></ShowIn>
-                <ShowIn><p>Helping businesses minimize their cost and maximize operations.</p></ShowIn>
-                <ShowIn>
-                    <LinkToAbout>
-                        <Link to={"/about"}><BsPersonBoundingBox/> Check me out</Link>
-                    </LinkToAbout>
-                </ShowIn>
-            </SectionPage>
+            <HomeContainerFlex className="d-flex flex-row">
+                <SectionPage id="home" className="pt-5">
+                    <div>
+                        <IntroTag>
+                            <span>Hi, I'm a</span>
+                        </IntroTag>
+                    </div>
+                    <div>
+                        <PositionTag>
+                            <span>{jobTitle}</span>
+                        </PositionTag>
+                    </div>
+                    <ShowIn>
+                        <BuilderTag>I build things for the web.</BuilderTag>
+                    </ShowIn>
+                    <ShowIn><p>Specialized in building exceptional web application services.</p></ShowIn>
+                    <ShowIn><p>Helping businesses minimize their cost and maximize operations.</p></ShowIn>
+                    <ShowIn>
+                        <LinkToAbout>
+                            <Link to={"/about"}><BsPersonBoundingBox/> Check me out</Link>
+                        </LinkToAbout>
+                    </ShowIn>
+                </SectionPage>
+                <Particles
+                    id="tsparticles"
+                    init={particlesInit}
+                    options={{
+                        fpsLimit: 120,
+                        interactivity: {
+                            modes: {
+                                push: {
+                                    quantity: 1,
+                                },
+                                repulse: {
+                                    distance: 100,
+                                    duration: 0.4,
+                                },
+                            },
+                        },
+                        particles: {
+                            color: {
+                                value: "#003ac8",
+                            },
+                            links: {
+                                color: "rgba(0, 106, 200, 0.71)",
+                                distance: 150,
+                                enable: true,
+                                opacity: 0.5,
+                                width: 2,
+                            },
+                            collisions: {
+                                enable: true,
+                            },
+                            move: {
+                                direction: "none",
+                                enable: true,
+                                outModes: {
+                                    default: "bounce",
+                                },
+                                random: false,
+                                speed: 1,
+                                straight: false,
+                            },
+                            number: {
+                                density: {
+                                    enable: true,
+                                    area: 500,
+                                },
+                                value: 80,
+                            },
+                            opacity: {
+                                value: 0.5,
+                            },
+                            shape: {
+                                type: "none",
+                            },
+                            size: {
+                                value: { min: 1, max: 5 },
+                            },
+                        },
+                        detectRetina: true,
+                        fullScreen: false
+                    }}/>
+            </HomeContainerFlex>
         </FadeIn>
     )
 };
 export default HomePage;
+
+const HomeContainerFlex = styled.div`
+    #tsparticles { 
+        width: 48% !important;
+        height: 100% !important;
+        pointer-events: none;
+        position: fixed !important;
+        z-index: 0 !important;
+        top: 0px !important;
+        right: 0px !important
+    }
+    
+    @media ${devicesMax.tablet} {
+        #tsparticles { 
+            width: 200px !important;
+            height: 200px !important;
+            pointer-events: none;
+            right: 0px !important;
+            position: fixed;
+            top: 100px !important;
+        }
+    }
+`;
 
 const titleTyping = keyframes`
   100%{
@@ -124,9 +219,10 @@ const LinkToAbout = styled.div`
     a {
         text-decoration: none;
         color: var(--green);
-        border: 2px solid var(--green);
         border-radius: 4px;
         padding: 6px;
         font-size: 1rem;
+        background: var(--green-light);
+        color: var(--white-pure) !important;
     }
 `;
