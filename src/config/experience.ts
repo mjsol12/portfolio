@@ -24,7 +24,7 @@ export const Experiences: ExperienceType[] = [
     {
         Company: 'Dominoff (Freelancer/startup)',
         Position: 'Full-stack Development',
-        Year: '2017 - Present',
+        Year: '2017 - 2022',
         Jobs: [
             'Created a mobile app for client specifications using NativeScript.',
             'Heavy in Front-end using Angular but also worked in back-end using Express and Nodejs.',

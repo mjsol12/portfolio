@@ -35,7 +35,7 @@ const HomePage = () => {
                         <BuilderTag>I build things for the web.</BuilderTag>
                     </ShowIn>
                     <ShowIn><p>Specialized in building exceptional web application services.</p></ShowIn>
-                    <ShowIn><p>Helping businesses minimize their cost and maximize operations.</p></ShowIn>
+                    <ShowIn><p>Helping businesses minimize their cost and operations.</p></ShowIn>
                     <ShowIn>
                         <LinkToAbout>
                             <Link to={"/about"}><BsPersonBoundingBox/> Check me out</Link>
