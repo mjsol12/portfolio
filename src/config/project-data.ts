@@ -7,7 +7,7 @@ export const ProjectData : ProjectDataType[] = [
         Description: 'A School Grading Tool currently used by public teachers in some government school. ' +
             'Assigned mostly to front-end side design and layout using an Angular template, ' +
             'creating generic design and reusable components.',
-        WebUrl: 'https://smiles.backbone.ph/login',
+        WebUrl: 'https://smiles.backbone.ph',
         ImageUrl: '/img/project-smiles/m-1.png',
         Images: [
             {Url: '/img/project-smiles/smiles-6.jpg', Name: 'Smiles Table Page'},
@@ -33,7 +33,7 @@ export const ProjectData : ProjectDataType[] = [
     {
         Id: 'b1480ac0-18a8-4f4a-8fc9-5d4dd0d086cc',
         Title: 'Outlet',
-        Description: 'An accounting system focused on managing the income, expenses, and other financial activities and is currently used by my local businessman. ' +
+        Description: 'An accounting system focused on managing the income, expenses, and other financial activities. ' +
             'Assigned as front-end from beginning up to long term support, ' +
             'from Login Design to Reporting and Authentication, and eventually worked on backend creating api ' +
             'requirements and designed data structure.',
