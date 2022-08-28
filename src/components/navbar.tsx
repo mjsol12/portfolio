@@ -5,6 +5,7 @@ import {NavigationData} from "../config/data-navs";
 import {BsGithub, BsGoogle, BsLinkedin, BsList, BsX} from "react-icons/bs"
 import {devicesMax} from "../config/devices";
 import useMediaQuery from "../hooks/UseMediaQuery";
+import {Dropdown} from "react-bootstrap";
 
 const CustomLink = ({ children, to, ...props }: LinkProps)  => {
     let resolved = useResolvedPath(to);
@@ -93,7 +94,18 @@ const NavBar = () => {
                             )
                         }
                         <ListTag>
-                            <ResumeButton href="/files/Mark_Solano_Resume.pdf" target="_blank">Resume</ResumeButton>
+                            <DropDownList>
+                                <Dropdown>
+                                    <Dropdown.Toggle id="dropdown-basic">
+                                        Download
+                                    </Dropdown.Toggle>
+
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item href="/files/Mark_Solano_Resume.pdf" target="_blank">Resume</Dropdown.Item>
+                                        <Dropdown.Item href="/files/Mark_Solano_CV.pdf" target="_blank">CV</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </DropDownList>
                         </ListTag>
                         {
                             footer.map((val, index) =>
@@ -148,6 +160,38 @@ const NavButtonContainer = styled.div`
 const NavButton = styled.button`
     font-size: 2rem;
     color: var(--white-dart) !important;
+`;
+
+const DropDownList = styled.div`
+   button {
+       background-color: var(--main-color)!important;
+       color: var(--white-dart)!important;
+       border: 2px solid var(--white-dart);
+       border-radius: 4px;
+       padding: 0px 6px !important;
+  }
+  
+  button:focus {
+     box-shadow: none !important;
+  }
+  
+  button:hover,
+  button:focus,
+  button:active {
+      color: var(--white-dart) !important;
+      background-color: var(--green-light) !important;
+      border-color: inherit !important;
+  }
+  
+  .dropdown-item:active {
+    background-color:transparent !important;
+  }
+  .dropdown-item:focus {
+    background-color:transparent !important;
+  }
+  .dropdown-item:hover {
+    background-color:transparent !important;
+  }
 `;
 
 const ResumeButton = styled.a`
