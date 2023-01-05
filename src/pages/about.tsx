@@ -20,7 +20,7 @@ const AboutPage = () => {
                                 I have had the privilege of working with people who are experienced software engineers and collaborating with them.
                             </SectionDescription>
                             <SectionDescription>
-                                Throughout my career, I've had the privilege of working at some of our local business agencies, a government school, a start-up, and a huge-corporation.
+                                Throughout my career, I've had the privilege of working at some of our local business agencies, government school, start-ups, and small to large corporation.
                                 I'm currently focused on delivering inclusive and clean software for the company.
                             </SectionDescription>
                             <SectionDescription>
@@ -46,6 +46,7 @@ const AboutPage = () => {
                                 <ListItem className="ps-3">React</ListItem>
                                 <ListItem className="ps-3">Angular</ListItem>
                                 <ListItem className="ps-3">NodeJs</ListItem>
+                                <ListItem className="ps-3">NextJs</ListItem>
                             </SectionList>
                         </TextContainer>
                     </AboutContainer>

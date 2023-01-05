@@ -220,7 +220,7 @@ const LinkToAbout = styled.div`
         text-decoration: none;
         color: var(--green);
         border-radius: 4px;
-        padding: 6px;
+        padding: 12px 22px;
         font-size: 1rem;
         background: var(--green-light);
         color: var(--white-pure) !important;

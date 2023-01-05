@@ -100,7 +100,7 @@ const NavBar = () => {
                                         Download
                                     </Dropdown.Toggle>
 
-                                    <Dropdown.Menu>
+                                    <Dropdown.Menu style={{minWidth: "105px"}} className="shadow">
                                         <Dropdown.Item href="/files/Mark_Solano_Resume.pdf" target="_blank">Resume</Dropdown.Item>
                                         <Dropdown.Item href="/files/Mark_Solano_CV.pdf" target="_blank">CV</Dropdown.Item>
                                     </Dropdown.Menu>
@@ -108,19 +108,74 @@ const NavBar = () => {
                             </DropDownList>
                         </ListTag>
                         {
-                            footer.map((val, index) =>
-                                <ListTag2 key={`social-media-tag-${index}`}>
+                            mediaTablet && footer.map((val, index) =>
+                                <ListTag2 className="shadow rounded-circle" key={`social-media-tag-${index}`}>
                                     <SocialMediaLink key={`footer-icons#${index}`} aria-label={val.title} target={val.target} href={val.href}>{val.icon}</SocialMediaLink>
                                 </ListTag2>
                             )
                         }
                     </ul>
                 </NavShow>
+                <SocialList>
+                    {
+                        !mediaTablet && footer.map((val, index) =>
+                          <ListTag2 key={`social-media-tag-${index}`}>
+                              <SocialMediaLink
+                                               key={`footer-icons#${index}`}
+                                               aria-label={val.title}
+                                               target={val.target}
+                                               href={val.href}>
+                                  {val.icon}
+                              </SocialMediaLink>
+                          </ListTag2>
+                        )
+                    }
+                </SocialList>
             </nav>
+
         </NavBarWrapper>
     );
 };
 export default NavBar
+
+const SocialList = styled.footer`
+  position: absolute;
+  direction: rtl;
+  background: transparent;
+  right: 1rem;
+  bottom: -200px;
+  z-index: 0;
+`;
+
+const ListTag2 = styled.div`
+    list-style: none;
+    margin: 25px 0;
+    a {
+        text-decoration: none;
+        color: var(--dark-slate);
+        &:hover {
+            color: var(--green);
+        }
+        &:active {
+            color: var(--green);
+        }
+    }
+`;
+
+const SocialMediaLink = styled.a`
+    text-decorator: none;
+    padding: 0 3px;
+    svg {
+        width: 1.8rem;
+        height: 1.8rem;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        border-radius: 50%!important;
+        background: #e8e8e8;
+    }
+     &:hover {
+        color: var(--green);
+     }
+`;
 
 const HomePage = styled.div`
     z-index: 14;
@@ -221,20 +276,20 @@ const ListTag = styled.li`
     }
 `;
 
-const ListTag2 = styled.li`
-    list-style: none;
-    margin: 25px 10px 0;
-    a {
-        text-decoration: none;
-        color: inherit;
-        &:hover {
-            color: var(--green);
-        }
-        &:active {
-            color: var(--green);
-        }
-    }
-`;
+// const ListTag2 = styled.li`
+//     list-style: none;
+//     margin: 25px 10px 0;
+//     a {
+//         text-decoration: none;
+//         color: inherit;
+//         &:hover {
+//             color: var(--green);
+//         }
+//         &:active {
+//             color: var(--green);
+//         }
+//     }
+// `;
 
 const NavBarWrapper = styled.header`
     top: 0;
@@ -276,15 +331,15 @@ const TextContainer = styled.div`
     }
 `;
 
-const SocialMediaLink = styled.a`
-    color: var(--white);
-    text-decorator: none;
-    padding: 0 3px;
-    svg {
-        width: 1.3rem;
-        height: 1.3rem;
-    }
-     &:hover {
-        color: var(--green);
-     }
-`;
+// const SocialMediaLink = styled.a`
+//     color: var(--white);
+//     text-decorator: none;
+//     padding: 0 3px;
+//     svg {
+//         width: 1.3rem;
+//         height: 1.3rem;
+//     }
+//      &:hover {
+//         color: var(--green);
+//      }
+// `;

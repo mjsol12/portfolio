@@ -5,10 +5,10 @@ export const Experiences: ExperienceType[] = [
         Company: 'Cased Dimensions',
         Position: 'Software Developer',
         Url: "https://www.caseddimensions.com/",
-        Year: 'June 2020 - Present',
+        Year: 'June 2020 - December 2022',
         Jobs: [
             'Rewarded for fixing a lot of bugs during my first 2 months in the job',
-            'Front-end Development with Angular and React, Nodejs, and Azure DevOps',
+            'Stacks with Angular and React, Nodejs, and Azure DevOps',
             'Implements user story or feature',
             'Fixing bugs and design markups and methods',
             'Collaborate with colleague on the project implementation and a scrum methodology'
@@ -43,4 +43,5 @@ export const Experiences: ExperienceType[] = [
             '3rd Party integration',
         ]
     },
+
 ];
