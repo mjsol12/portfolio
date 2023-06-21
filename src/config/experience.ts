@@ -1,46 +1,65 @@
-import {ExperienceType} from "../model";
+import { ExperienceType } from "../model";
 
 export const Experiences: ExperienceType[] = [
-    {
-        Company: 'Cased Dimensions',
-        Position: 'Software Developer',
-        Url: "https://www.caseddimensions.com/",
-        Year: 'June 2020 - Present',
-        Jobs: [
-            'Rewarded for fixing a lot of bugs during my first 2 months in the job',
-            'Front-end Development with Angular and React, Nodejs, and Azure DevOps',
-            'Implements user story or feature',
-            'Fixing bugs and design markups and methods',
-            'Collaborate with colleague on the project implementation and a scrum methodology'
-        ],
-        Stacks: [
-            'Dynamic 365',
-            'ReactJs',
-            'AngularJs',
-            'NodeJs',
-            'Azure DevOps'
-        ]
-    },
-    {
-        Company: 'Dominoff (Freelancer/startup)',
-        Position: 'Full-stack Development',
-        Year: '2017 - Present',
-        Jobs: [
-            'Created a mobile app for client specifications using NativeScript.',
-            'Heavy in Front-end using Angular but also worked in back-end using Express and Nodejs.',
-            'Designed data using Mongodb and Nodejs for API requirements.',
-            'Implements feature and maintain code base up to date.',
-            'Collaborate with project partner for the implementation of system.',
-            'Provides client support and gradually seeing client for updates and support tech.',
-            'Integrated SMS/GSM data converter into web data'
-        ],
-        Stacks: [
-            'Angular',
-            'NodeJs',
-            'Mongodb',
-            'Express',
-            'NativeScript',
-            '3rd Party integration',
-        ]
-    },
+  {
+    Company: "Navigation North",
+    Position: "Sr. Software Engineer - Lead Developer",
+    Url: "https://navigationnorth.com/",
+    Year: "January 2023 - Present",
+    Jobs: [
+      "Work closely with software architects, developers, designers and quality analysts to engineer great software.",
+      "Develop functional software in accordance with business and technical requirements.",
+      "Deliver high quality, high performant, and maintenable code following defined standards for code and test coverage",
+      "Ensure adherence to effective agile software development practices, including communication, estimation, documentation, and testing.",
+      "Collaborate with colleague on the project implementation and a scrum methodology",
+      "Continuesly improve security, performance, testability, maintainability, and scalability of software solutions and processes.",
+      "Actively provide technical mentoring to team members, including code reviews and other training exercises.",
+    ],
+    Stacks: [
+      "Amazon Web Services (AWS)",
+      "Remix",
+      "Webiny",
+      "Content Management Systems (CMS)",
+      "TypeScript",
+      "Node.js",
+      "Jest",
+      "Cypress",
+      "GraphQL",
+      "React.js",
+    ],
+  },
+  {
+    Company: "Cased Dimensions",
+    Position: "Software Developer",
+    Url: "https://www.caseddimensions.com/",
+    Year: "June 2020 - December-2022",
+    Jobs: [
+      "Work closely with the project manager, developers, and quality analysts to develop great software.",
+      "Collaborate with team members in implementing, solving and estimating the user story set for a sprint.",
+      "Develop functional software with accordance with business and technical requirements.",
+      "Deliver high-quality code and reuseable for maintaining and adopting a bug-free codes.",
+    ],
+    Stacks: ["Dynamic 365", "ReactJs", "AngularJs", "NodeJs", "Azure DevOps"],
+  },
+  {
+    Company: "Dominoff (Freelancer/startup)",
+    Position: "Full-stack Development",
+    Year: "2017 - 2022",
+    Jobs: [
+      "Develop high-quality software with my collaborator/partner involving business requirements.",
+      "Involvement in testing and integration with an actual machine, maintaining system quality, and creating automation testing for the product requirements.",
+      "Involvement in solving geographical challenges involving clients' requirements and meeting expectations. ",
+      "Involving catch-up and meetings with clients' requirements, updates, and development achievements.",
+      "Participate in scheduled and budgeting with stakeholders.",
+      "Integrated SMS/GSM data converter into web data",
+    ],
+    Stacks: [
+      "Angular",
+      "NodeJs",
+      "Mongodb",
+      "Express",
+      "NativeScript",
+      "3rd Party integration",
+    ],
+  },
 ];
