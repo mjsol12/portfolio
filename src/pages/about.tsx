@@ -6,7 +6,7 @@ import { devicesMax } from "../config/devices";
 
 const introduction = [
   `Hello there! I'm Mark Solano, hailing from the Philippines and currently part of a remote dynamic team. As a software developer, my primary focus revolves around implementing robust features, crafting intuitive interfaces, maintaining bug-free code, and constantly honing my skills to stay abreast of the latest developments in the tech stack.`,
-  `While my academic background is rooted in social studies, my passion for creative problem-solving and a relentless pursuit of knowledge steered me towards a career in software development. I've had the privilege of collaborating with seasoned professionals in the field, which has greatly enriched my learning journey.`,
+  `My passion for creative problem-solving and a relentless pursuit of knowledge steered me towards a career in software development. I've had the privilege of collaborating with seasoned professionals in the field, which has greatly enriched my learning journey. Moreover, I've also had the opportunity to share my honed skills and insights with other developers, contributing to our collective growth and success`,
   `Outside the realm of coding, I find joy in exploring the open road on my motorcycle, capturing breathtaking landscapes through my lens, and cherishing quality time with friends and family over the weekends. I also have a penchant for staying informed by delving into articles, news, and books, with the occasional indulgence in online gaming to unwind.`,
 ];
 
