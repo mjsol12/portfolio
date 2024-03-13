@@ -1,61 +1,60 @@
-import React from "react";
 import style from "styled-components";
 import ImageOverlay from "../components/image-overly";
 import PageHeader from "../components/page-header";
 import FadeIn from "../components/fade-in";
-import {devicesMax} from "../config/devices";
+import { devicesMax } from "../config/devices";
+
+const introduction = [
+  `Hello there! I'm Mark Solano, hailing from the Philippines and currently part of a remote dynamic team. As a software developer, my primary focus revolves around implementing robust features, crafting intuitive interfaces, maintaining bug-free code, and constantly honing my skills to stay abreast of the latest developments in the tech stack.`,
+  `While my academic background is rooted in social studies, my passion for creative problem-solving and a relentless pursuit of knowledge steered me towards a career in software development. I've had the privilege of collaborating with seasoned professionals in the field, which has greatly enriched my learning journey.`,
+  `Outside the realm of coding, I find joy in exploring the open road on my motorcycle, capturing breathtaking landscapes through my lens, and cherishing quality time with friends and family over the weekends. I also have a penchant for staying informed by delving into articles, news, and books, with the occasional indulgence in online gaming to unwind.`,
+];
 
 const AboutPage = () => {
-    const title = 'About me';
-    return (
-        <FadeIn key={`About-Me-Page`} className="container">
-            <SectionPage id="about">
-                <PageHeader Title={title}/>
-                <AboutRoot>
-                    <AboutContainer width="75%">
-                        <TextContainer className="container mb-5">
-                            <SectionDescription>
-                                Hello! My name is Mark Solano from Philippines and part of a team based in Belfast.
-                                my main responsibility as a software developer is implementing features, designing interfaces,
-                                maintaining bug-free code, and keeping stack skills up to date.
-                                I have had the privilege of working with people who are experienced software engineers and collaborate with them.
-                            </SectionDescription>
-                            <SectionDescription>
-                                Although my graduate degree was on social degree.
-                                My love to create out of the box and a continuing learning path lead me to my career.
-                            </SectionDescription>
-                            <SectionDescription>
-                                I love to travel using a motorcycle; take landscape pictures;
-                                meet friends and family over the weekend; read articles, news and books,
-                                and occasionally play online games.
-                            </SectionDescription>
-                        </TextContainer>
-                    </AboutContainer>
-                    <AboutContainer width="50%" className="mx-3">
-                        <ImageOverlay alt="Mark Solano Image" ImageUrl={"/img/myself5.jpg"} Width={168}/>
-                    </AboutContainer>
-                </AboutRoot>
-                <div>
-                    <AboutContainer width="50%">
-                        <TextContainer className="container">
-                            <SectionH2>
-                                Technologies I've been working with recently
-                            </SectionH2>
-                            <SectionList>
-                                <ListItem className="ps-3">Javascript(Es6+)</ListItem>
-                                <ListItem className="ps-3">TypeScript</ListItem>
-                                <ListItem className="ps-3">React</ListItem>
-                                <ListItem className="ps-3">Angular</ListItem>
-                                <ListItem className="ps-3">NodeJs</ListItem>
-                            </SectionList>
-                        </TextContainer>
-                    </AboutContainer>
-                </div>
-            </SectionPage>
-        </FadeIn>
-    )
+  const title = "About me";
+
+  return (
+    <FadeIn key={`About-Me-Page`} className="container">
+      <SectionPage id="about">
+        <PageHeader Title={title} />
+        <AboutRoot>
+          <AboutContainer width="75%">
+            <TextContainer className="container mb-5">
+              {introduction.map((intro, i) => (
+                <SectionDescription key={i}>{intro}</SectionDescription>
+              ))}
+            </TextContainer>
+          </AboutContainer>
+          <AboutContainer width="50%" className="mx-3">
+            <ImageOverlay
+              alt="Mark Solano Image"
+              ImageUrl={"/img/myself5.jpg"}
+              Width={168}
+            />
+          </AboutContainer>
+        </AboutRoot>
+        <div>
+          <AboutContainer width="50%">
+            <TextContainer className="container">
+              <SectionH2>
+                Technologies I've been working with recently
+              </SectionH2>
+              <SectionList>
+                <ListItem className="ps-3">Javascript(Es6+)</ListItem>
+                <ListItem className="ps-3">TypeScript</ListItem>
+                <ListItem className="ps-3">Remix</ListItem>
+                <ListItem className="ps-3">React</ListItem>
+                <ListItem className="ps-3">Angular</ListItem>
+                <ListItem className="ps-3">NodeJs</ListItem>
+              </SectionList>
+            </TextContainer>
+          </AboutContainer>
+        </div>
+      </SectionPage>
+    </FadeIn>
+  );
 };
-export default AboutPage
+export default AboutPage;
 
 const SectionPage = style.section`
     color: var(--white-dart);
@@ -71,7 +70,8 @@ const AboutRoot = style.div`
 const AboutContainer = style.div`
     position: relative;
     padding: 0;
-    width: ${(props:{width: string}) => props.width ? props.width: "100%"};
+    width: ${(props: { width: string }) =>
+      props.width ? props.width : "100%"};
     @media ${devicesMax.tablet} {
         width: 100%;
         margin: 0 !important;
@@ -96,6 +96,9 @@ const TextContainer = style.div`
     box-shadow: 0px 0px 10px #0000000a;
     position: relative;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 `;
 
 const SectionList = style.ul`
