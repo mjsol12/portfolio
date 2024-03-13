@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import PageHeader from "../components/page-header";
 import { Experiences } from "../config/experience";
