@@ -23,10 +23,12 @@ const HomePage = () => {
           <BuilderTag>I build things for the web.</BuilderTag>
         </ShowIn>
         <ShowIn>
-          <p>Specializing in building exceptional web application services.</p>
+          <p>Specializing in crafting outstanding web application services.</p>
         </ShowIn>
         <ShowIn>
-          <p>Helping businesses minimize their cost and maximize operations.</p>
+          <p>
+            Assisting businesses in reducing costs and optimizing operations
+          </p>
         </ShowIn>
         <ShowIn>
           <LinkToAbout>
