@@ -62,6 +62,7 @@ const SectionH2 = styled.h2`
   background-color: var(--white-dart-light);
   font-size: 1.5rem;
   padding: 0px 20px;
+  width: fit-content;
 `;
 const SectionH3 = styled.h3`
   text-indent: 25px;
