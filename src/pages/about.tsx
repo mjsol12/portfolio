@@ -40,8 +40,7 @@ const AboutPage = () => {
                 Technologies I've been working with recently
               </SectionH2>
               <SectionList>
-                <ListItem className="ps-3">Javascript(Es6+)</ListItem>
-                <ListItem className="ps-3">TypeScript</ListItem>
+                <ListItem className="ps-3">Javascript/TypeScript</ListItem>
                 <ListItem className="ps-3">Remix</ListItem>
                 <ListItem className="ps-3">React</ListItem>
                 <ListItem className="ps-3">Angular</ListItem>
@@ -103,7 +102,7 @@ const TextContainer = style.div`
 
 const SectionList = style.ul`
     display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
+    grid-template-columns: repeat(2, minmax(140px, 300px));
     gap: 0px 10px;
     padding: 0px;
     margin: 20px 0px 0px;
